@@ -4,7 +4,7 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "----font-inter",
   display: "swap",
 });
 
@@ -184,13 +184,27 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={inter.variable}>
       <head>
+        {/* ── NEW RELIC BROWSER AGENT ──────────────────────────────
+            Must be the FIRST script in <head> — before any other JS.
+            Served as a static file from /nr.js (public/nr.js).
+            To update, replace the content of public/nr.js with a
+            fresh snippet from:
+              New Relic → Add Data → Browser → Copy/paste JavaScript code
+        ────────────────────────────────────────────────────────── */}
+        <script id="newrelic-browser-agent" src="/nr.js" />
+
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
+        {/* New Relic data endpoint preconnect (EU region) */}
+        <link rel="preconnect" href="https://bam.eu01.nr-data.net" />
+        {/* Use this instead if your NR account is in the US region: */}
+        {/* <link rel="preconnect" href="https://bam.nr-data.net" /> */}
+
         {/* DNS Prefetch for external resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
+
         {/* Preload critical assets */}
         <link rel="preload" as="image" href="/img/logo.jpg" />
         <link rel="preload" as="image" href="/img/og-image.jpg" />
@@ -200,7 +214,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        
+
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="IN-MH" />
         <meta name="geo.placename" content="Pune" />
@@ -214,7 +228,7 @@ export default function RootLayout({
         <meta name="doc-type" content="Web Page" />
         <meta name="doc-class" content="Completed" />
         <meta name="doc-rights" content="Public" />
-        
+
         {/* Performance hints */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />

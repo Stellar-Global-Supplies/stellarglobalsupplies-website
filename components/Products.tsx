@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+// ── NEW: New Relic event helper ───────────────────────────────────────────────
+import { nr } from "@/lib/nr";
 
 // ── PRODUCT DATA (CEO-mandated images & names) ────────────────────────────────
 const CATEGORIES = [
@@ -65,12 +67,14 @@ function ProductCard({
   img,
   desc,
   category,
+  categoryId,
   delay,
 }: {
   name: string;
   img: string;
   desc: string;
   category: string;
+  categoryId: string;
   delay: number;
 }) {
   return (
@@ -115,6 +119,12 @@ function ProductCard({
           className="mt-3 text-xs font-semibold flex items-center gap-1 group/btn"
           style={{ color: "var(--primary)" }}
           onClick={() => {
+            // ── NR: track which product card triggered an enquiry ─────────
+            nr("EnquireNow", {
+              product_name:     name,
+              product_category: categoryId,
+              source:           "product-card",
+            });
             document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
           }}
           aria-label={`Enquire about ${name}`}
@@ -149,6 +159,47 @@ export default function Products() {
 
   const current = CATEGORIES[activeTab];
 
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Industrial Products Catalogue",
+    description: "Complete range of Mild Steel, Stainless Steel, and Fastening products from Stellar Global Supplies",
+    url: "https://stellarglobalsupplies.com/products",
+    numberOfItems: CATEGORIES.reduce((acc, cat) => acc + cat.products.length, 0),
+    itemListElement: CATEGORIES.flatMap((cat, catIndex) =>
+      cat.products.map((product, prodIndex) => ({
+        "@type": "ListItem",
+        position: catIndex * 100 + prodIndex + 1,
+        item: {
+          "@type": "Product",
+          name: product.name,
+          description: product.desc,
+          category: cat.label,
+          brand: "Stellar Global Supplies",
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "INR",
+            availability: "https://schema.org/InStock",
+            seller: {
+              "@type": "Organization",
+              name: "Stellar Global Supplies",
+            },
+          },
+        },
+      }))
+    ),
+  };
+
+  // ── NR: handle tab switch with tracking ────────────────────────────────────
+  const handleTabClick = (idx: number) => {
+    setActiveTab(idx);
+    nr("ProductTabViewed", {
+      tab_id:   CATEGORIES[idx].id,
+      tab_name: CATEGORIES[idx].label,
+    });
+  };
+
   return (
     <section
       id="products"
@@ -157,6 +208,12 @@ export default function Products() {
       style={{ background: "var(--light)" }}
       aria-labelledby="products-heading"
     >
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Faint accent top-left */}
       <div
         aria-hidden="true"
@@ -176,12 +233,12 @@ export default function Products() {
             Our Products
           </span>
           <h2 id="products-heading" className="section-heading mb-3">
-            Everything Your Industry Needs,{" "}
-            <span className="text-gradient">In One Place</span>
+            Premium <span className="text-gradient">Industrial Materials</span> Catalogue
           </h2>
           <p className="section-sub mx-auto">
-            Browse our wide-ranging catalogue of industrial materials — each product 
-            precision-sourced and quality-verified before delivery.
+            Explore our comprehensive range of <strong>Mild Steel, Stainless Steel, and Fastening products</strong>. 
+            Each product is precision-sourced, quality-verified, and delivered fast from Pune. 
+            Trusted by 500+ businesses across India for industrial supply solutions.
           </p>
         </div>
 
@@ -200,7 +257,7 @@ export default function Products() {
               id={`tab-${cat.id}`}
               aria-selected={activeTab === idx}
               aria-controls={`panel-${cat.id}`}
-              onClick={() => setActiveTab(idx)}
+              onClick={() => handleTabClick(idx)}   // ← was: onClick={() => setActiveTab(idx)}
               className={[
                 "px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200",
                 activeTab === idx
@@ -236,6 +293,7 @@ export default function Products() {
               key={product.name}
               {...product}
               category={current.label}
+              categoryId={current.id}   // ← new prop for nr() tracking
               delay={idx * 60}
             />
           ))}
@@ -248,6 +306,8 @@ export default function Products() {
           </p>
           <button
             onClick={() => {
+              // ── NR: bottom-of-catalogue enquiry ─────────────────────────
+              nr("EnquireNow", { source: "catalogue-bottom-cta" });
               document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
             }}
             className="btn-primary"

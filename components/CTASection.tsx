@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin, ArrowRight, Clock } from "lucide-react";
+// ── NEW: New Relic event helper ───────────────────────────────────────────────
+import { nr } from "@/lib/nr";
 
 const CONTACT_ITEMS = [
   {
@@ -11,6 +13,7 @@ const CONTACT_ITEMS = [
     value: "+91 9637655556",
     href: "tel:+919637655556",
     hint: "Mon–Sat, 9 AM–6 PM",
+    nrEvent: "ClickToCall",
   },
   {
     Icon: Mail,
@@ -18,6 +21,7 @@ const CONTACT_ITEMS = [
     value: "stellarglobalsupplies@gmail.com",
     href: "mailto:stellarglobalsupplies@gmail.com",
     hint: "We reply within 24 hours",
+    nrEvent: "ClickToEmail",
   },
   {
     Icon: MapPin,
@@ -25,6 +29,7 @@ const CONTACT_ITEMS = [
     value: "Survey No-169, Gala No-3, Pandurang Industrial Complex, Rupee Nagar, Talawade, Pune – 411062",
     href: "https://maps.google.com/?q=Talawade+Pune+411062",
     hint: "Open: Mon–Sat",
+    nrEvent: "OpenMaps",
   },
 ];
 
@@ -101,13 +106,15 @@ export default function CTASection() {
             <span className="text-gradient">Industrial Procurement?</span>
           </h2>
           <p className="text-white/65 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-            Tell us your requirement — material, grade, quantity, timeline — and 
+            Tell us your requirement — material, grade, quantity, timeline — and{" "}
             we&apos;ll have a competitive quote back to you within 24 hours.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
+            {/* ── NR: banner Call CTA ────────────────────────────────────── */}
             <a
               href="tel:+919637655556"
+              onClick={() => nr("ClickToCall", { source: "cta-banner" })}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white shadow-primary transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: "var(--primary)" }}
               aria-label="Call us now for a quote"
@@ -115,8 +122,10 @@ export default function CTASection() {
               <Phone size={16} aria-hidden="true" />
               Call Us Now
             </a>
+            {/* ── NR: banner Email CTA ───────────────────────────────────── */}
             <a
               href="mailto:stellarglobalsupplies@gmail.com"
+              onClick={() => nr("ClickToEmail", { source: "cta-banner" })}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm border transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10"
               style={{
                 borderColor: "rgba(255,255,255,0.25)",
@@ -154,12 +163,14 @@ export default function CTASection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {CONTACT_ITEMS.map(({ Icon, label, value, href, hint }, idx) => (
+            {CONTACT_ITEMS.map(({ Icon, label, value, href, hint, nrEvent }, idx) => (
               <a
                 key={label}
                 href={href}
                 target={label === "Visit Us" ? "_blank" : undefined}
                 rel={label === "Visit Us" ? "noopener noreferrer" : undefined}
+                // ── NR: contact card click ─────────────────────────────────
+                onClick={() => nr(nrEvent, { source: "contact-card", label })}
                 className={[
                   "bento-card border border-gray-100 p-6 flex flex-col gap-3 group no-underline",
                   "hover:border-primary-200 hover:bg-primary-50/30",
@@ -199,7 +210,11 @@ export default function CTASection() {
                   style={{ color: "var(--primary)" }}
                   aria-hidden="true"
                 >
-                  {label === "Visit Us" ? "Open in Maps" : label === "Email Us" ? "Send Email" : "Call Now"}
+                  {label === "Visit Us"
+                    ? "Open in Maps"
+                    : label === "Email Us"
+                    ? "Send Email"
+                    : "Call Now"}
                   <ArrowRight size={12} />
                 </span>
               </a>

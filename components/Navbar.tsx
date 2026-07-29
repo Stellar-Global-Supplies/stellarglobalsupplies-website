@@ -4,21 +4,18 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 
-const NAV_LINKS = [
-  { label: "Home",        href: "#home" },
-  { label: "About",       href: "#about" },
-  { label: "Blog",        href: "/blog" },
-  {
-    label: "Products",
-    href: "#products",
-    children: [
-      { label: "Mild Steel Products",        href: "#products", tab: "mild-steel" },
-      { label: "Stainless Steel Products",   href: "#products", tab: "stainless-steel" },
-      { label: "Locking & Fastening",        href: "#products", tab: "fastening" },
-    ],
-  },
-  { label: "Clients",     href: "#clients" },
-  { label: "Contact",     href: "#contact" },
+const NAV_LINKS: Array<{
+  label: string;
+  href: string;
+  children?: Array<{ label: string; href: string; tab?: string }>;
+}> = [
+  { label: "Home",              href: "#home" },
+  { label: "About",             href: "#about" },
+  { label: "Blog",              href: "/blog" },
+  { label: "Products",          href: "#products" },
+  { label: "Promotional",       href: "/promotional-products" },
+  { label: "Clients",           href: "#clients" },
+  { label: "Contact",           href: "#contact" },
 ];
 
 export default function Navbar() {

@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Truck, Package, Star } from "lucide-react";
+// ── NEW: New Relic event helper ───────────────────────────────────────────────
+import { nr, initScrollDepth } from "@/lib/nr";
 
 // ── HERO CAROUSEL IMAGES (CEO-mandated) ──────────────────────────────────────
 const CAROUSEL_IMAGES = [
@@ -14,10 +16,10 @@ const CAROUSEL_IMAGES = [
 
 // ── TRUST STATS ──────────────────────────────────────────────────────────────
 const STATS = [
-  { value: "500+",   label: "Products",      Icon: Package },
-  { value: "100%",   label: "Quality Check", Icon: ShieldCheck },
-  { value: "3",      label: "Categories",    Icon: Star },
-  { value: "Fast",   label: "Delivery",      Icon: Truck },
+  { value: "500+", label: "Products",      Icon: Package },
+  { value: "100%", label: "Quality Check", Icon: ShieldCheck },
+  { value: "3",    label: "Categories",    Icon: Star },
+  { value: "Fast", label: "Delivery",      Icon: Truck },
 ];
 
 export default function Hero() {
@@ -39,10 +41,21 @@ export default function Hero() {
     return () => clearInterval(id);
   }, []);
 
+  // ── NR: scroll depth — start tracking from here (first component) ──────────
+  useEffect(() => {
+    const cleanup = initScrollDepth();
+    return cleanup;
+  }, []);
+
   const scrollToProducts = () => {
+    // ── NR: hero primary CTA ─────────────────────────────────────────────────
+    nr("HeroCTAClick", { cta: "browse-products", section: "hero" });
     document.querySelector("#products")?.scrollIntoView({ behavior: "smooth" });
   };
+
   const scrollToContact = () => {
+    // ── NR: hero secondary CTA ───────────────────────────────────────────────
+    nr("HeroCTAClick", { cta: "get-free-quote", section: "hero" });
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -150,7 +163,7 @@ export default function Hero() {
               ].join(" ")}
             >
               <button
-                onClick={scrollToProducts}
+                onClick={scrollToProducts}    // ← NR tracking added inside
                 className="btn-primary"
                 aria-label="Browse all products"
               >
@@ -158,7 +171,7 @@ export default function Hero() {
                 <ArrowRight size={16} aria-hidden="true" />
               </button>
               <button
-                onClick={scrollToContact}
+                onClick={scrollToContact}     // ← NR tracking added inside
                 className="btn-ghost"
                 aria-label="Contact us for a quote"
               >
@@ -249,7 +262,11 @@ export default function Hero() {
                 {CAROUSEL_IMAGES.map((img, idx) => (
                   <button
                     key={img.src}
-                    onClick={() => setCurrentImg(idx)}
+                    onClick={() => {
+                      setCurrentImg(idx);
+                      // ── NR: carousel dot clicked ─────────────────────────
+                      nr("CarouselDotClick", { slide_index: idx, slide_alt: img.alt });
+                    }}
                     role="tab"
                     aria-selected={idx === currentImg}
                     aria-label={`View image ${idx + 1}: ${img.alt}`}

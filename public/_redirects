@@ -1,14 +1,7 @@
-# Cloudflare Pages redirects and caching rules
-# Format: <source> <destination> <status> [headers]
+# Cloudflare Pages SPA fallback
+# With trailingSlash: true in next.config.js, Next.js outputs /page/index.html
+# so we don't need a catch-all. This file is kept for any manual redirects.
 
-# Cache static assets aggressively (1 year)
-/_next/static/*  /_next/static/:splat  200  Cache-Control: public, max-age=31536000, immutable
-
-# Cache images for 1 week
-/img/*  /img/:splat  200  Cache-Control: public, max-age=604800
-
-# Don't cache HTML files (always fresh)
-/*.html  /*  200  Cache-Control: no-cache, no-store, must-revalidate
-
-# Default cache for everything else (1 hour)
-/*  /*  200  Cache-Control: public, max-age=3600
+# Redirect non-trailing-slash URLs to trailing-slash versions (belt & suspenders)
+/blog   /blog/  301
+/promotional-products   /promotional-products/  301

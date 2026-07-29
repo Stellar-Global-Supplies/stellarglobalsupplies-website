@@ -12,6 +12,3 @@
 
 # Default cache for everything else (1 hour)
 /*  /*  200  Cache-Control: public, max-age=3600
-
-# SPA fallback (for client-side routing if needed)
-/*  /index.html  200

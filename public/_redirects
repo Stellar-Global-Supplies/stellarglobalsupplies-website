@@ -1,7 +1,1 @@
-# Cloudflare Pages SPA fallback
-# With trailingSlash: true in next.config.js, Next.js outputs /page/index.html
-# so we don't need a catch-all. This file is kept for any manual redirects.
-
-# Redirect non-trailing-slash URLs to trailing-slash versions (belt & suspenders)
-/blog   /blog/  301
-/promotional-products   /promotional-products/  301
+# No redirects needed — trailingSlash: true in next.config.js handles this

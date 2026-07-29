@@ -2,11 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Truck, Package, Star } from "lucide-react";
-// ── NEW: New Relic event helper ───────────────────────────────────────────────
+import { ArrowRight, ShieldCheck, Truck, Package, Star, ChevronDown } from "lucide-react";
 import { nr, initScrollDepth } from "@/lib/nr";
 
-// ── HERO CAROUSEL IMAGES (CEO-mandated) ──────────────────────────────────────
 const CAROUSEL_IMAGES = [
   { src: "/img/SS-Circles.jpg",     alt: "Stainless Steel Circles" },
   { src: "/img/MS-Round-Pipes.jpg", alt: "MS Round Pipes" },
@@ -14,12 +12,11 @@ const CAROUSEL_IMAGES = [
   { src: "/img/Hex-Bolts.jpg",      alt: "Hex Bolts" },
 ];
 
-// ── TRUST STATS ──────────────────────────────────────────────────────────────
 const STATS = [
-  { value: "500+", label: "Products",      Icon: Package },
-  { value: "100%", label: "Quality Check", Icon: ShieldCheck },
-  { value: "3",    label: "Categories",    Icon: Star },
-  { value: "Fast", label: "Delivery",      Icon: Truck },
+  { value: "500+",  label: "Products",      Icon: Package },
+  { value: "100%",  label: "Quality Check", Icon: ShieldCheck },
+  { value: "3",     label: "Categories",    Icon: Star },
+  { value: "Fast",  label: "Delivery",      Icon: Truck },
 ];
 
 export default function Hero() {
@@ -27,72 +24,103 @@ export default function Hero() {
   const [isVisible,  setIsVisible]  = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
-  // Reveal on mount
   useEffect(() => {
     const t = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(t);
   }, []);
 
-  // Auto-rotate carousel
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentImg((i) => (i + 1) % CAROUSEL_IMAGES.length);
-    }, 3500);
+    }, 4000);
     return () => clearInterval(id);
   }, []);
 
-  // ── NR: scroll depth — start tracking from here (first component) ──────────
   useEffect(() => {
     const cleanup = initScrollDepth();
     return cleanup;
   }, []);
 
   const scrollToProducts = () => {
-    // ── NR: hero primary CTA ─────────────────────────────────────────────────
     nr("HeroCTAClick", { cta: "browse-products", section: "hero" });
     document.querySelector("#products")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToContact = () => {
-    // ── NR: hero secondary CTA ───────────────────────────────────────────────
     nr("HeroCTAClick", { cta: "get-free-quote", section: "hero" });
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollDown = () => {
+    document.querySelector("#promotional-products")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
       id="home"
       ref={heroRef}
-      className="hero-mesh relative overflow-hidden min-h-[88vh] flex items-center"
+      className="relative w-full min-h-screen flex flex-col overflow-hidden"
       aria-label="Hero – Stellar Global Supplies"
     >
-      {/* Decorative circles */}
-      <div
-        aria-hidden="true"
-        className="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-        style={{ background: "var(--primary)" }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full opacity-8 blur-3xl pointer-events-none"
-        style={{ background: "var(--secondary)" }}
-      />
+      {/* ── FULL-BLEED BACKGROUND CAROUSEL ── */}
+      <div className="absolute inset-0 z-0">
+        {CAROUSEL_IMAGES.map((img, idx) => (
+          <div
+            key={img.src}
+            className={[
+              "absolute inset-0 transition-opacity duration-1000",
+              idx === currentImg ? "opacity-100" : "opacity-0",
+            ].join(" ")}
+            aria-hidden={idx !== currentImg}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+              priority={idx === 0}
+            />
+          </div>
+        ))}
+        {/* Multi-layer gradient overlay for text legibility */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(14,46,80,0.88) 0%, rgba(14,46,80,0.65) 55%, rgba(14,46,80,0.30) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(14,46,80,0.70) 0%, transparent 50%)",
+          }}
+          aria-hidden="true"
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* ── LEFT COLUMN – COPY ─────────────────────────────────────── */}
-          <div className="order-2 lg:order-1 flex flex-col gap-6">
+      {/* ── MAIN CONTENT ── */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 lg:py-28">
+          <div className="max-w-2xl xl:max-w-3xl">
 
             {/* Badge */}
             <div
-              className={`section-badge w-fit transition-all duration-700 ${
+              className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
+              style={{
+                background: "rgba(0,185,142,0.20)",
+                border: "1px solid rgba(0,185,142,0.45)",
+                color: "#4dffd4",
+              }}
             >
               <span
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{ background: "var(--primary)" }}
+                style={{ background: "#00B98E" }}
                 aria-hidden="true"
               />
               Established 2025 · Pune, India
@@ -100,37 +128,35 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className={[
-                "section-heading transition-all duration-700 delay-100",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-              ].join(" ")}
+              className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white mb-6 transition-all duration-700 delay-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
             >
               India&apos;s Most{" "}
-              <span className="shimmer-text">Reliable</span>
-              <br />
-              Industrial Supply{" "}
               <span
-                className="relative inline-block"
-                style={{ color: "var(--dark)" }}
+                style={{
+                  background: "linear-gradient(90deg, #00B98E, #4dffd4, #FF6922)",
+                  backgroundSize: "200% auto",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  animation: "shimmer 3s linear infinite",
+                }}
               >
-                Partner
-                <span
-                  aria-hidden="true"
-                  className="absolute -bottom-1 left-0 w-full h-1 rounded-full"
-                  style={{ background: "var(--primary)", opacity: 0.35 }}
-                />
+                Reliable
               </span>
+              <br />
+              Industrial Supply Partner
             </h1>
 
             {/* Sub-copy */}
             <p
-              className={[
-                "section-sub transition-all duration-700 delay-200",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-              ].join(" ")}
+              className={`text-lg lg:text-xl text-white/80 mb-8 max-w-xl leading-relaxed transition-all duration-700 delay-200 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
             >
-              One shop. Every material. Zero compromise. We source premium{" "}
-              <strong className="font-semibold" style={{ color: "var(--dark)" }}>
+              One stop. Every material. Zero compromise. Premium{" "}
+              <strong className="text-white font-semibold">
                 Stainless Steel, Mild Steel & Fastening
               </strong>{" "}
               products — tailored to your spec, delivered on time.
@@ -138,18 +164,23 @@ export default function Hero() {
 
             {/* Value props */}
             <ul
-              className={[
-                "flex flex-col gap-2 transition-all duration-700 delay-300",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-              ].join(" ")}
-              aria-label="Key benefits"
+              className={`flex flex-col gap-2 mb-8 transition-all duration-700 delay-300 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
             >
               {[
                 "500+ industrial products under one roof",
                 "Precision-sourced to your exact specifications",
                 "Reliable quality · on-time, every time",
               ].map((item) => (
-                <li key={item} className="dot-accent text-sm text-gray-600">
+                <li key={item} className="flex items-center gap-2 text-sm text-white/75">
+                  <span
+                    className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold"
+                    style={{ background: "rgba(0,185,142,0.3)", color: "#4dffd4" }}
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
                   {item}
                 </li>
               ))}
@@ -157,186 +188,99 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
-              className={[
-                "flex flex-wrap gap-3 mt-2 transition-all duration-700 delay-400",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-              ].join(" ")}
+              className={`flex flex-wrap gap-3 mb-12 transition-all duration-700 delay-400 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
             >
               <button
-                onClick={scrollToProducts}    // ← NR tracking added inside
-                className="btn-primary"
+                onClick={scrollToProducts}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-white shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                style={{ background: "var(--primary)", boxShadow: "0 0 24px rgba(0,185,142,0.45)" }}
                 aria-label="Browse all products"
               >
                 Browse Products
                 <ArrowRight size={16} aria-hidden="true" />
               </button>
               <button
-                onClick={scrollToContact}     // ← NR tracking added inside
-                className="btn-ghost"
+                onClick={scrollToContact}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                style={{
+                  background: "rgba(255,255,255,0.12)",
+                  border: "1px solid rgba(255,255,255,0.30)",
+                  color: "#fff",
+                  backdropFilter: "blur(8px)",
+                }}
                 aria-label="Contact us for a quote"
               >
                 Get a Free Quote
               </button>
             </div>
 
-            {/* Inline stats strip */}
+            {/* Stats strip */}
             <div
-              className={[
-                "grid grid-cols-4 gap-3 mt-4 transition-all duration-700 delay-500",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-              ].join(" ")}
+              className={`grid grid-cols-4 gap-3 transition-all duration-700 delay-500 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
               aria-label="Key statistics"
             >
               {STATS.map(({ value, label, Icon }) => (
                 <div
                   key={label}
-                  className="stat-chip"
-                  role="figure"
-                  aria-label={`${value} ${label}`}
+                  className="flex flex-col items-center gap-1 rounded-xl py-3 px-2"
+                  style={{
+                    background: "rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    backdropFilter: "blur(8px)",
+                  }}
                 >
-                  <Icon
-                    size={16}
-                    aria-hidden="true"
-                    className="mb-1"
-                    style={{ color: "var(--primary)" }}
-                  />
-                  <span
-                    className="text-lg font-extrabold leading-none"
-                    style={{ color: "var(--dark)" }}
-                  >
-                    {value}
-                  </span>
-                  <span className="text-xs text-gray-500 text-center leading-tight mt-0.5">
-                    {label}
-                  </span>
+                  <Icon size={15} style={{ color: "#00B98E" }} aria-hidden="true" />
+                  <span className="text-base font-extrabold text-white leading-none">{value}</span>
+                  <span className="text-[10px] text-white/60 text-center leading-tight">{label}</span>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* ── RIGHT COLUMN – VISUAL ─────────────────────────────────── */}
-          <div
-            className={[
-              "order-1 lg:order-2 relative transition-all duration-700 delay-200",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8",
-            ].join(" ")}
-          >
-            {/* Main image frame */}
-            <div className="relative rounded-4xl overflow-hidden shadow-glass-dark aspect-[4/3] lg:aspect-[5/4]">
-              {CAROUSEL_IMAGES.map((img, idx) => (
-                <div
-                  key={img.src}
-                  className={[
-                    "absolute inset-0 transition-opacity duration-700",
-                    idx === currentImg ? "opacity-100" : "opacity-0",
-                  ].join(" ")}
-                  aria-hidden={idx !== currentImg}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover img-zoom"
-                    priority={idx === 0}
-                  />
-                </div>
-              ))}
-
-              {/* Gradient overlay */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 55%, rgba(14,46,80,0.45) 100%)",
-                }}
-                aria-hidden="true"
-              />
-
-              {/* Carousel dots */}
-              <div
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"
-                role="tablist"
-                aria-label="Image carousel controls"
-              >
-                {CAROUSEL_IMAGES.map((img, idx) => (
-                  <button
-                    key={img.src}
-                    onClick={() => {
-                      setCurrentImg(idx);
-                      // ── NR: carousel dot clicked ─────────────────────────
-                      nr("CarouselDotClick", { slide_index: idx, slide_alt: img.alt });
-                    }}
-                    role="tab"
-                    aria-selected={idx === currentImg}
-                    aria-label={`View image ${idx + 1}: ${img.alt}`}
-                    className={[
-                      "h-1.5 rounded-full transition-all duration-300",
-                      idx === currentImg
-                        ? "w-6 bg-white"
-                        : "w-1.5 bg-white/50 hover:bg-white/75",
-                    ].join(" ")}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Floating glass card – top-right */}
-            <div
-              className="absolute -top-4 -right-4 glass rounded-2xl px-4 py-3 shadow-glass animate-float hidden sm:block"
-              aria-label="On-time delivery badge"
-            >
-              <div className="flex items-center gap-2">
-                <div
-                  className="w-8 h-8 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(0,185,142,0.12)" }}
-                  aria-hidden="true"
-                >
-                  <Truck size={16} style={{ color: "var(--primary)" }} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold" style={{ color: "var(--dark)" }}>
-                    On-Time Delivery
-                  </p>
-                  <p className="text-xs text-gray-500">Guaranteed</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating glass card – bottom-left */}
-            <div
-              className="absolute -bottom-4 -left-4 glass rounded-2xl px-4 py-3 shadow-glass animate-float hidden sm:block"
-              style={{ animationDelay: "1.5s" }}
-              aria-label="Quality assurance badge"
-            >
-              <div className="flex items-center gap-2">
-                <div
-                  className="w-8 h-8 rounded-xl flex items-center justify-center"
-                  style={{ background: "rgba(255,105,34,0.10)" }}
-                  aria-hidden="true"
-                >
-                  <ShieldCheck size={16} style={{ color: "var(--secondary)" }} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold" style={{ color: "var(--dark)" }}>
-                    Quality Assured
-                  </p>
-                  <p className="text-xs text-gray-500">Every batch</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Decorative ring */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-4xl pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(0,185,142,0.12) 0%, transparent 60%)",
-              }}
-            />
           </div>
         </div>
+      </div>
+
+      {/* ── CAROUSEL DOTS ── */}
+      <div className="relative z-10 flex justify-center gap-2 pb-6">
+        {CAROUSEL_IMAGES.map((img, idx) => (
+          <button
+            key={img.src}
+            onClick={() => setCurrentImg(idx)}
+            aria-label={`View image ${idx + 1}: ${img.alt}`}
+            aria-selected={idx === currentImg}
+            className={[
+              "h-1.5 rounded-full transition-all duration-300",
+              idx === currentImg ? "w-6 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70",
+            ].join(" ")}
+          />
+        ))}
+      </div>
+
+      {/* ── SCROLL INDICATOR ── */}
+      <button
+        onClick={scrollDown}
+        aria-label="Scroll to featured promotions"
+        className="absolute bottom-6 right-8 z-10 flex flex-col items-center gap-1 text-white/50 hover:text-white transition-colors duration-200 hidden lg:flex"
+      >
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <ChevronDown size={18} className="animate-bounce" aria-hidden="true" />
+      </button>
+
+      {/* ── IMAGE LABEL OVERLAY ── */}
+      <div
+        className="absolute bottom-10 right-6 z-10 hidden lg:block"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <span
+          className="text-xs px-3 py-1 rounded-full font-medium text-white/80"
+          style={{ background: "rgba(0,0,0,0.35)", backdropFilter: "blur(4px)" }}
+        >
+          {CAROUSEL_IMAGES[currentImg].alt}
+        </span>
       </div>
     </section>
   );

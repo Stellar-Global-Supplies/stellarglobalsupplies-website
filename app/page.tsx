@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar              from "@/components/Navbar";
+import PromoBanner         from "@/components/PromoBanner";
 import Hero                from "@/components/Hero";
 import PromotionalProducts from "@/components/PromotionalProducts";
 import TrustBar            from "@/components/TrustBar";
@@ -82,6 +83,9 @@ export default function HomePage() {
       >
         Skip to main content
       </a>
+
+      {/* ── PROMO ANNOUNCEMENT BAR ─────────────────────── */}
+      <PromoBanner />
 
       {/* ── NAVIGATION ─────────────────────────────────── */}
       <Navbar />

@@ -1,12 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "----font-inter",
-  display: "swap",
-});
+// Inter is self-hosted via @fontsource/inter (imported in globals.css).
+// No next/font/google needed — avoids network fetch failures in CF Pages builds.
 
 // ── SEO METADATA ──────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -208,7 +203,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={inter.variable}>
+    <html lang="en-IN">
       <head>
         {/* ── NEW RELIC BROWSER AGENT ──────────────────────────────
             Must be the FIRST script in <head> — before any other JS.

@@ -40,9 +40,9 @@ const CATEGORIES = [
   },
   {
     id: "fastening",
-    label: "Locking & Fastening",
+    label: "Industrial Fasteners",
     short: "L&F",
-    tagline: "Every fastener, precisely engineered",
+    tagline: "Precision fasteners for every assembly",
     products: [
       { name: "Brass Hex Spacers (M-F)",           slug: "brass-hex-spacers",  img: "/img/Brass-Hex-Spacers.jpg",         desc: "Male-to-female PCB standoffs in multiple lengths." },
       { name: "KM Lock Nuts",           slug: "km-lock-nuts",             img: "/img/KM-Lock-Nuts.jpg",               desc: "Bearing retention lock nuts for precision shafts." },

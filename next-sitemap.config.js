@@ -19,11 +19,19 @@ module.exports = {
   priority: 0.7,
   outDir: "./out",
   exclude: ["/404"],
-  additionalPaths: async (config) =>
-    PRODUCT_SLUGS.map((slug) => ({
+  additionalPaths: async (config) => {
+    const promo = [
+      "ms-nylock-nut",
+      "internal-circlips-din472",
+      "external-circlip-din471",
+      "nordlock-washers",
+    ];
+    const all = [...PRODUCT_SLUGS, ...promo];
+    return all.map((slug) => ({
       loc: `/${slug}`,
       changefreq: "monthly",
-      priority: 0.85,
+      priority: promo.includes(slug) ? 0.90 : 0.85,
       lastmod: new Date().toISOString(),
-    })),
+    }));
+  },
 };

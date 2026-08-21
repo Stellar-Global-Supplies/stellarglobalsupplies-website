@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "grub-screws",
   name: "Grub Screws",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Grub-Screws-1.jpg",
   tagline: "Grub Screw Supplier in Pune",
   headline: "Grub Screws — Set Screw Supplier in Pune",

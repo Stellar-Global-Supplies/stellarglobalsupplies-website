@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "dowel-pins",
   name: "Dowel Pins",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Dowel-Pins.jpg",
   tagline: "Dowel Pin Supplier in Pune",
   headline: "Dowel Pins — Precision Ground Pin Supplier in Pune",

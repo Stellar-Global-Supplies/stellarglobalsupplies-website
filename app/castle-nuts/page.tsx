@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "castle-nuts",
   name: "Castle Nuts",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Castle-nuts.jpg",
   tagline: "Castle Nut Supplier in Pune",
   headline: "Castle Nuts — Slotted Nut Supplier in Pune",

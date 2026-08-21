@@ -9,15 +9,17 @@ import { nr } from "@/lib/nr";
 const PROMOTIONAL_PRODUCTS = [
   {
     id: "nylock-nut",
-    name: "MS NYLOCK NUT",
+    slug: "ms-nylock-nut",
+    name: "MS Nylock Nut",
     img: "/img/01_nyloc_nut.png",
     tagline: "Vibration-proof fastening",
-    sizes: ["M5X0.80", "M6X1.00", "M8X1.25", "M10X1.50"],
+    sizes: ["M5×0.80", "M6×1.00", "M8×1.25", "M10×1.50"],
     grade: "Grade 982",
     highlight: "Nylon insert locking",
   },
   {
     id: "internal-circlips",
+    slug: "internal-circlips-din472",
     name: "Internal Circlips DIN 472",
     img: "/img/02_internal_circlips_DIN472.png",
     tagline: "Precision bore retention",
@@ -27,6 +29,7 @@ const PROMOTIONAL_PRODUCTS = [
   },
   {
     id: "external-circlips",
+    slug: "external-circlip-din471",
     name: "External Circlips DIN 471",
     img: "/img/03_external_circlips_DIN471.png",
     tagline: "Reliable shaft retention",
@@ -36,6 +39,7 @@ const PROMOTIONAL_PRODUCTS = [
   },
   {
     id: "nordlock-washers",
+    slug: "nordlock-washers",
     name: "Nordlock Washers",
     img: "/img/04_nordlock_washers.png",
     tagline: "Wedge-locking technology",
@@ -183,17 +187,15 @@ export default function PromotionalProducts() {
                 </div>
 
                 {/* CTA */}
-                <button
-                  onClick={() => {
-                    nr("PromoEnquire", { product_name: product.name });
-                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="mt-auto w-full py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+                <Link
+                  href={`/${product.slug}`}
+                  className="mt-auto w-full py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 text-center block"
                   style={{ background: "var(--primary)" }}
-                  aria-label={`Enquire about ${product.name}`}
+                  aria-label={`View details for ${product.name}`}
+                  onClick={() => nr("PromoCardClick", { product_name: product.name })}
                 >
-                  Enquire Now
-                </button>
+                  View Details →
+                </Link>
               </div>
             </article>
           ))}

@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "studs",
   name: "Studs",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Studs.jpg",
   tagline: "Threaded Stud Supplier in Pune",
   headline: "Studs — Threaded Stud Supplier in Pune",

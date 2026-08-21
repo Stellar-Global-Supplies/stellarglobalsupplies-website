@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "nylock-nuts",
   name: "Nylock Nuts",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Nylock-Nuts.jpg",
   tagline: "Nylock Nut Supplier in Pune",
   headline: "Nylock Nuts — Nylon Insert Lock Nut Supplier in Pune",

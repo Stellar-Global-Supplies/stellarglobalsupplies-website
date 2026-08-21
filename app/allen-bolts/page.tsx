@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "allen-bolts",
   name: "Allen Bolts",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Allen-Bolts.jpg",
   tagline: "Allen Bolt Supplier in Pune",
   headline: "Allen Bolts — Socket Head Cap Screw Supplier in Pune",

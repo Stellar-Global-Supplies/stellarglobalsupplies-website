@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "external-circlip",
   name: "External Circlip",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/External-Circlip.png",
   tagline: "External Circlip Supplier in Pune",
   headline: "External Circlips — DIN 471 Shaft Snap Ring Supplier in Pune",

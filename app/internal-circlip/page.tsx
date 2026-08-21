@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "internal-circlip",
   name: "Internal Circlip",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Internal-Circlip.png",
   tagline: "Internal Circlip Supplier in Pune",
   headline: "Internal Circlips — DIN 472 Bore Snap Ring Supplier in Pune",

@@ -8,7 +8,7 @@ const QUICK_LINKS = [
   { label: "About Us",      href: "/#about" },
   { label: "Mild Steel",    href: "/#mild-steel" },
   { label: "Stainless Steel", href: "/#stainless-steel" },
-  { label: "Locking & Fastening", href: "/#fastening" },
+  { label: "Industrial Fasteners", href: "/#industrial-fasteners" },
   { label: "Contact",       href: "/#contact" },
 ];
 

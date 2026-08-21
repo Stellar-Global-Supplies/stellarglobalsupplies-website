@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "mb-lock-washer",
   name: "MB Lock Washer",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/MB-Lock-Washer.jpg",
   tagline: "MB Lock Washer Supplier in Pune",
   headline: "MB Lock Washers — Tab Washer Supplier in Pune",

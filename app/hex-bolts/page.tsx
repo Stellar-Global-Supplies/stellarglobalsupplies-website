@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "hex-bolts",
   name: "Hex Bolts",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Hex-Bolts.jpg",
   tagline: "Hex Bolt Supplier in Pune",
   headline: "Hex Bolts — Structural Hex Head Bolt Supplier in Pune",

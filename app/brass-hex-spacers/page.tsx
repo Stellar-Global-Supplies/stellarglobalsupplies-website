@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "brass-hex-spacers",
   name: "Brass Hex Spacers",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Brass-Hex-Spacers.jpg",
   tagline: "Brass Hex Spacer Supplier in Pune",
   headline: "Brass Hex Spacers — PCB Standoff Supplier in Pune",

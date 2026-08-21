@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "allen-csk-bolts",
   name: "Allen CSK Bolts",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/Allen-CSK-Bolts.jpg",
   tagline: "Allen CSK Bolt Supplier in Pune",
   headline: "Allen CSK Bolts — Countersunk Socket Head Bolt Supplier in Pune",

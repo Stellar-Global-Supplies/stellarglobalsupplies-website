@@ -4,7 +4,7 @@ import ProductLandingPage, { buildMetadata, ProductPageData } from "@/components
 const product: ProductPageData = {
   slug: "km-lock-nuts",
   name: "KM Lock Nuts",
-  category: "Locking & Fastening",
+  category: "Industrial Fasteners",
   img: "/img/KM-Lock-Nuts.jpg",
   tagline: "KM Lock Nut Supplier in Pune",
   headline: "KM Lock Nuts — Bearing Lock Nut Supplier in Pune",

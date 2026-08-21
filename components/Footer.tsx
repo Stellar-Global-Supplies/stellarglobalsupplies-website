@@ -1,24 +1,29 @@
 "use client";
 
 import { Phone, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const QUICK_LINKS = [
-  { label: "Home",          href: "#home" },
-  { label: "About Us",      href: "#about" },
-  { label: "Mild Steel",    href: "#mild-steel" },
-  { label: "Stainless Steel", href: "#stainless-steel" },
-  { label: "Locking & Fastening", href: "#fastening" },
-  { label: "Contact",       href: "#contact" },
+  { label: "Home",          href: "/#home" },
+  { label: "About Us",      href: "/#about" },
+  { label: "Mild Steel",    href: "/#mild-steel" },
+  { label: "Stainless Steel", href: "/#stainless-steel" },
+  { label: "Locking & Fastening", href: "/#fastening" },
+  { label: "Contact",       href: "/#contact" },
 ];
 
 const PRODUCTS = [
-  "MS Angles & Flats",
-  "MS Round Pipes",
-  "SS Channels & Sheets",
-  "SS Round Bars & Pipes",
-  "Hex & Allen Bolts",
-  "Lock Nuts & Washers",
-  "Circlips & Dowel Pins",
+  { label: "MS Angles",         href: "/ms-angles" },
+  { label: "MS Flats",          href: "/ms-flats" },
+  { label: "MS Round Pipes",    href: "/ms-round-pipes" },
+  { label: "SS Channels",       href: "/ss-channels" },
+  { label: "SS Sheets",         href: "/ss-sheets" },
+  { label: "SS Round Bars",     href: "/ss-round-bars" },
+  { label: "Hex Bolts",         href: "/hex-bolts" },
+  { label: "Allen Bolts",       href: "/allen-bolts" },
+  { label: "Nylock Nuts",       href: "/nylock-nuts" },
+  { label: "Circlips",          href: "/external-circlip" },
+  { label: "Dowel Pins",        href: "/dowel-pins" },
 ];
 
 export default function Footer() {
@@ -133,12 +138,14 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-2.5">
               {PRODUCTS.map((product) => (
-                <li
-                  key={product}
-                  className="text-sm"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
-                >
-                  {product}
+                <li key={product.label} className="text-sm">
+                  <Link
+                    href={product.href}
+                    className="transition-colors hover:text-white"
+                    style={{ color: "rgba(255,255,255,0.55)" }}
+                  >
+                    {product.label}
+                  </Link>
                 </li>
               ))}
             </ul>

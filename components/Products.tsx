@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 // ── NEW: New Relic event helper ───────────────────────────────────────────────
 import { nr } from "@/lib/nr";
 
@@ -13,14 +14,14 @@ const CATEGORIES = [
     short: "MS",
     tagline: "Structural strength for every application",
     products: [
-      { name: "MS Angles",           img: "/img/MS-Angles.jpg",       desc: "Versatile angular sections for structural frameworks." },
-      { name: "MS Flats",            img: "/img/MS-Flats.jpg",        desc: "Precision-rolled flat bars for fabrication needs." },
-      { name: "MS Round Pipes",      img: "/img/MS-Round-Pipes.jpg",  desc: "Seamless round pipes for fluid & structural use." },
-      { name: "MS Sheet",            img: "/img/MS-Sheet.jpg",        desc: "Hot-rolled sheets for industrial fabrication." },
-      { name: "MS Square Tubes",     img: "/img/Square-Tubes.jpg",    desc: "Hollow square sections for construction & furniture." },
-      { name: "MS Channels",         img: "/img/Channels.jpg",        desc: "C-section channels for beams and support structures." },
-      { name: "MS Chequered Plate",  img: "/img/Chequered-plate.jpg", desc: "Anti-slip patterned plates for flooring & ramps." },
-      { name: "MS Galvanised Sheets",img: "/img/Galvanised-Sheets.jpg",desc: "Zinc-coated sheets for superior corrosion resistance." },
+      { name: "MS Angles",           slug: "ms-angles",           img: "/img/MS-Angles.jpg",       desc: "Versatile angular sections for structural frameworks." },
+      { name: "MS Flats",           slug: "ms-flats",            img: "/img/MS-Flats.jpg",        desc: "Precision-rolled flat bars for fabrication needs." },
+      { name: "MS Round Pipes",           slug: "ms-round-pipes",      img: "/img/MS-Round-Pipes.jpg",  desc: "Seamless round pipes for fluid & structural use." },
+      { name: "MS Sheet",           slug: "ms-sheet",            img: "/img/MS-Sheet.jpg",        desc: "Hot-rolled sheets for industrial fabrication." },
+      { name: "MS Square Tubes",           slug: "ms-square-tubes",     img: "/img/Square-Tubes.jpg",    desc: "Hollow square sections for construction & furniture." },
+      { name: "MS Channels",           slug: "ms-channels",         img: "/img/Channels.jpg",        desc: "C-section channels for beams and support structures." },
+      { name: "MS Chequered Plate",           slug: "ms-chequered-plate",  img: "/img/Chequered-plate.jpg", desc: "Anti-slip patterned plates for flooring & ramps." },
+      { name: "MS Galvanised Sheets",           slug: "ms-galvanised-sheets",img: "/img/Galvanised-Sheets.jpg",desc: "Zinc-coated sheets for superior corrosion resistance." },
     ],
   },
   {
@@ -29,34 +30,35 @@ const CATEGORIES = [
     short: "SS",
     tagline: "Corrosion-resistant precision materials",
     products: [
-      { name: "SS Channels",   img: "/img/SS-Channels.jpg",   desc: "Grade 304/316 channels for hygienic & structural use." },
-      { name: "SS Circles",    img: "/img/SS-Circles.jpg",    desc: "Precision-cut circles for flanges and blanks." },
-      { name: "SS Flats",      img: "/img/SS-Flats.jpg",      desc: "Polished SS flat bars for food & pharma industries." },
-      { name: "SS Round Bars", img: "/img/SS-Round-Bars.jpg", desc: "Solid round bars for machining & fabrication." },
-      { name: "SS Round Pipe", img: "/img/SS-Round-Pipe.jpg", desc: "Seamless & welded pipes in multiple grades." },
-      { name: "SS Sheets",     img: "/img/SS-Sheets.jpg",     desc: "Mirror, matte & brushed finish sheets available." },
+      { name: "SS Channels",           slug: "ss-channels",   img: "/img/SS-Channels.jpg",   desc: "Grade 304/316 channels for hygienic & structural use." },
+      { name: "SS Circles",           slug: "ss-circles",    img: "/img/SS-Circles.jpg",    desc: "Precision-cut circles for flanges and blanks." },
+      { name: "SS Flats",           slug: "ss-flats",      img: "/img/SS-Flats.jpg",      desc: "Polished SS flat bars for food & pharma industries." },
+      { name: "SS Round Bars",           slug: "ss-round-bars", img: "/img/SS-Round-Bars.jpg", desc: "Solid round bars for machining & fabrication." },
+      { name: "SS Round Pipe",           slug: "ss-round-pipe", img: "/img/SS-Round-Pipe.jpg", desc: "Seamless & welded pipes in multiple grades." },
+      { name: "SS Sheets",           slug: "ss-sheets",     img: "/img/SS-Sheets.jpg",     desc: "Mirror, matte & brushed finish sheets available." },
     ],
   },
   {
     id: "fastening",
-    label: "Locking & Fastening",
+    label: "Industrial Fasteners",
     short: "L&F",
-    tagline: "Every fastener, precisely engineered",
+    tagline: "Precision fasteners for every assembly",
     products: [
-      { name: "Brass Hex Spacers (M-F)",  img: "/img/Brass-Hex-Spacers.jpg",         desc: "Male-to-female PCB standoffs in multiple lengths." },
-      { name: "KM Lock Nuts",             img: "/img/KM-Lock-Nuts.jpg",               desc: "Bearing retention lock nuts for precision shafts." },
-      { name: "MB Lock Washer",           img: "/img/MB-Lock-Washer.jpg",             desc: "Tab washers for KM nut locking applications." },
-      { name: "External Circlip",         img: "/img/External-Circlip.png",           desc: "Snap rings for shaft retention in assemblies." },
-      { name: "Internal Circlip",         img: "/img/Internal-Circlip.png",           desc: "Bore snap rings for housing & bore retention." },
-      { name: "Dowel Pins",               img: "/img/Dowel-Pins.jpg",                 desc: "Precision ground pins for accurate alignment." },
-      { name: "Studs",                    img: "/img/Studs.jpg",                       desc: "Threaded studs for high-load bolt joints." },
-      { name: "Nylock Nuts",              img: "/img/Nylock-Nuts.jpg",                desc: "Nylon insert nuts for vibration-proof fastening." },
-      { name: "Castle Nuts",              img: "/img/Castle-nuts.jpg",                desc: "Slotted nuts for cotter pin security." },
-      { name: "Grub Screws",             img: "/img/Grub-Screws-1.jpg",              desc: "Headless set screws for shaft-collar locking." },
-      { name: "Spring Dowel Pins",        img: "/img/spring-dowel-pin.jpg",           desc: "Coiled spring pins for self-locking joints." },
-      { name: "Allen CSK Bolts",          img: "/img/Allen-CSK-Bolts.jpg",            desc: "Countersunk socket head bolts for flush fitting." },
-      { name: "Hex Bolts",                img: "/img/Hex-Bolts.jpg",                  desc: "Standard hex head bolts in various grades." },
-      { name: "Allen Bolts",              img: "/img/Allen-Bolts.jpg",                desc: "Socket head cap screws for tight-space fastening." },
+      { name: "Brass Hex Spacers (M-F)",           slug: "brass-hex-spacers",  img: "/img/Brass-Hex-Spacers.jpg",         desc: "Male-to-female PCB standoffs in multiple lengths." },
+      { name: "KM Lock Nuts",           slug: "km-lock-nuts",             img: "/img/KM-Lock-Nuts.jpg",               desc: "Bearing retention lock nuts for precision shafts." },
+      { name: "MB Lock Washer",           slug: "mb-lock-washer",           img: "/img/MB-Lock-Washer.jpg",             desc: "Tab washers for KM nut locking applications." },
+      { name: "External Circlip",           slug: "external-circlip",         img: "/img/External-Circlip.png",           desc: "Snap rings for shaft retention in assemblies." },
+      { name: "Internal Circlip",           slug: "internal-circlip",         img: "/img/Internal-Circlip.png",           desc: "Bore snap rings for housing & bore retention." },
+      { name: "Dowel Pins",           slug: "dowel-pins",               img: "/img/Dowel-Pins.jpg",                 desc: "Precision ground pins for accurate alignment." },
+      { name: "Studs",           slug: "studs",                    img: "/img/Studs.jpg",                       desc: "Threaded studs for high-load bolt joints." },
+      { name: "Nylock Nuts",           slug: "nylock-nuts",              img: "/img/Nylock-Nuts.jpg",                desc: "Nylon insert nuts for vibration-proof fastening." },
+      { name: "Castle Nuts",           slug: "castle-nuts",              img: "/img/Castle-nuts.jpg",                desc: "Slotted nuts for cotter pin security." },
+      { name: "Grub Screws",           slug: "grub-screws",             img: "/img/Grub-Screws-1.jpg",              desc: "Headless set screws for shaft-collar locking." },
+      { name: "Spring Dowel Pins",           slug: "spring-dowel-pins",        img: "/img/spring-dowel-pin.jpg",           desc: "Coiled spring pins for self-locking joints." },
+      { name: "Allen CSK Bolts",           slug: "allen-csk-bolts",          img: "/img/Allen-CSK-Bolts.jpg",            desc: "Countersunk socket head bolts for flush fitting." },
+      { name: "Hex Bolts",           slug: "hex-bolts",                img: "/img/Hex-Bolts.jpg",                  desc: "Standard hex head bolts in various grades." },
+      { name: "Allen Bolts",           slug: "allen-bolts",              img: "/img/Allen-Bolts.jpg",                desc: "Socket head cap screws for tight-space fastening." },
+      { name: "Nordlock Washers",       slug: "nordlock-washers",         img: "/img/04_nordlock_washers.png",        desc: "Wedge-locking washers that prevent bolt loosening under vibration." },
     ],
   },
 ];
@@ -66,6 +68,7 @@ function ProductCard({
   name,
   img,
   desc,
+  slug,
   category,
   categoryId,
   delay,
@@ -73,6 +76,7 @@ function ProductCard({
   name: string;
   img: string;
   desc: string;
+  slug: string;
   category: string;
   categoryId: string;
   delay: number;
@@ -115,28 +119,20 @@ function ProductCard({
         <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{desc}</p>
 
         {/* Subtle CTA */}
-        <button
+        <Link
+          href={`/${slug}`}
           className="mt-3 text-xs font-semibold flex items-center gap-1 group/btn"
           style={{ color: "var(--primary)" }}
-          onClick={() => {
-            // ── NR: track which product card triggered an enquiry ─────────
-            nr("EnquireNow", {
-              product_name:     name,
-              product_category: categoryId,
-              source:           "product-card",
-            });
-            document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-          }}
-          aria-label={`Enquire about ${name}`}
+          aria-label={`View details for ${name}`}
         >
-          Enquire Now
+          View Details
           <span
             className="inline-block transition-transform duration-200 group-hover/btn:translate-x-1"
             aria-hidden="true"
           >
             →
           </span>
-        </button>
+        </Link>
       </div>
     </article>
   );
@@ -293,7 +289,7 @@ export default function Products() {
               key={product.name}
               {...product}
               category={current.label}
-              categoryId={current.id}   // ← new prop for nr() tracking
+              categoryId={current.id}
               delay={idx * 60}
             />
           ))}

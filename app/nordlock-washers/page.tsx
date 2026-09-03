@@ -5,7 +5,7 @@ const product: ProductPageData = {
   slug: "nordlock-washers",
   name: "Nordlock Washers",
   category: "Industrial Fasteners",
-  img: "/img/04_nordlock_washers.png",
+  img: "/img/Nordlock-Washer.jpg",
   tagline: "Wedge-Lock Washer Supplier in Pune",
   headline: "Nordlock Washers — Wedge-Lock Washer Supplier in Pune",
   desc: "Nordlock wedge-locking washers use cam-action technology to prevent bolt loosening under extreme vibration and dynamic loads — the industry standard for critical joints.",

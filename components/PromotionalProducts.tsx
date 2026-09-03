@@ -47,6 +47,16 @@ const PROMOTIONAL_PRODUCTS = [
     grade: "Standard Grade",
     highlight: "Eliminates bolt loosening",
   },
+  {
+    id: "t-nuts",
+    slug: "t-nuts",
+    name: "T-Nuts",
+    img: "/img/05_t_nuts.png",
+    tagline: "Precise thread, durable build",
+    sizes: ["M4 to M8"],
+    grade: "Premium Quality",
+    highlight: "Strong & reliable extrusion fastening",
+  },
 ];
 
 export default function PromotionalProducts() {

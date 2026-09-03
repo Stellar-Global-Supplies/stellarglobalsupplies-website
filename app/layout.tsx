@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import PromoPopup from "@/components/PromoPopup";
 // Inter is self-hosted via @fontsource/inter (imported in globals.css).
 // No next/font/google needed — avoids network fetch failures in CF Pages builds.
 
@@ -255,6 +256,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       </head>
       <body className="font-sans antialiased">
+        <PromoPopup />
         {children}
       </body>
     </html>

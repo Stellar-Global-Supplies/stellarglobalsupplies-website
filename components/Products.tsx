@@ -58,7 +58,9 @@ const CATEGORIES = [
       { name: "Allen CSK Bolts",           slug: "allen-csk-bolts",          img: "/img/Allen-CSK-Bolts.jpg",            desc: "Countersunk socket head bolts for flush fitting." },
       { name: "Hex Bolts",           slug: "hex-bolts",                img: "/img/Hex-Bolts.jpg",                  desc: "Standard hex head bolts in various grades." },
       { name: "Allen Bolts",           slug: "allen-bolts",              img: "/img/Allen-Bolts.jpg",                desc: "Socket head cap screws for tight-space fastening." },
-      { name: "Nordlock Washers",       slug: "nordlock-washers",         img: "/img/04_nordlock_washers.png",        desc: "Wedge-locking washers that prevent bolt loosening under vibration." },
+      { name: "Nordlock Washers",       slug: "nordlock-washers",         img: "/img/Nordlock-Washer.jpg",        desc: "Wedge-locking washers that prevent bolt loosening under vibration." },
+      { name: "T-Nuts",           slug: "t-nuts",                   img: "/img/T-Nuts.jpg",                    desc: "Roll-in slot nuts for aluminum extrusion frame assembly." },
+      { name: "Star Washers",           slug: "star-washers",             img: "/img/Star-Washers.jpg",              desc: "Internal-tooth lock washers for reliable electrical bonding & anti-loosening." },
     ],
   },
 ];

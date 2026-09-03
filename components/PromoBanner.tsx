@@ -31,7 +31,7 @@ export default function PromoBanner() {
 
       <p className="text-center leading-snug">
         <span className="font-bold text-yellow-300 mr-1">Featured Promotions:</span>
-        MS NYLOCK NUTS · DIN Circlips · Nordlock Washers — Special pricing available
+        MS NYLOCK NUTS · DIN Circlips · Nordlock Washers · T-Nuts — Special pricing available
       </p>
 
       <Link

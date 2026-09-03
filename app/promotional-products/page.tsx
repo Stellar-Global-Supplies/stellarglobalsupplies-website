@@ -12,7 +12,7 @@ import { Phone, Mail, CheckCircle2, ArrowLeft, Package } from "lucide-react";
 export const metadata: Metadata = {
   title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies Pune",
   description:
-    "Exclusive promotional industrial fasteners from Stellar Global Supplies, Pune. Special pricing on MS NYLOCK NUTs (M5–M10), Internal Circlips DIN 472 (B8–B100), External Circlips DIN 471 (A6–A100), and Nordlock Washers (M6–M24). Premium quality, ISO certified, bulk order discounts available. Get free quote today!",
+    "Exclusive promotional industrial fasteners from Stellar Global Supplies, Pune. Special pricing on MS NYLOCK NUTs (M5–M10), Internal Circlips DIN 472 (B8–B100), External Circlips DIN 471 (A6–A100), Nordlock Washers (M6–M24), and T-Nuts (M4–M8). Premium quality, ISO certified, bulk order discounts available. Get free quote today!",
   keywords: [
     "promotional industrial products",
     "MS NYLOCK NUT M5 M6 M8 M10",
@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "internal circlips DIN 472",
     "external circlips DIN 471",
     "Nordlock washers M6 M24",
+    "T-nuts M4 M5 M6 M8",
+    "aluminum extrusion T-nuts Pune",
     "industrial fasteners on sale",
     "special offer fasteners",
     "bulk order discounts",
@@ -133,6 +135,23 @@ const PRODUCTS = [
       "Reusable multiple times",
       "Works with standard bolts & nuts",
       "Superior to conventional lock washers",
+    ],
+  },
+  {
+    id: "t-nuts",
+    name: "T-Nuts",
+    img: "/img/05_t_nuts.png",
+    tagline: "Precise thread, strong & reliable",
+    grade: "Premium Quality",
+    description:
+      "High-quality T-nuts designed for secure sliding or drop-in fastening in aluminum extrusion profiles. Featuring precise threading and a durable long-lasting build, these T-nuts provide strong, reliable anchor points for modular machine frames, CNC builds, conveyor systems, and solar mounting structures.",
+    sizes: ["M4", "M5", "M6", "M8"],
+    features: [
+      "Precise thread for secure fastening",
+      "Strong & reliable under load",
+      "Compatible with 20, 30 & 40-series extrusions",
+      "Durable long-lasting construction",
+      "Roll-in and drop-in types available",
     ],
   },
 ];
@@ -368,7 +387,7 @@ export default function PromotionalProductsPage() {
             {/* Quick stat strip */}
             <div className="flex flex-wrap gap-4 mt-8">
               {[
-                { label: "Products Featured", val: "4" },
+                { label: "Products Featured", val: "5" },
                 { label: "In Stock", val: "All" },
                 { label: "Bulk Discounts", val: "Yes" },
                 { label: "Delivery", val: "Fast" },

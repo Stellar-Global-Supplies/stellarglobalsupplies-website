@@ -181,50 +181,58 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </p>
           </div>
 
-          {/* Blog Content */}
+          {/* Blog Content: render headings, paragraphs, bullets, bold and Markdown links */}
           <div className="prose prose-lg prose-primary max-w-none">
-            {post.content.split("\n").map((paragraph, index) => {
-              // Handle headings
-              if (paragraph.startsWith("### ")) {
-                return (
-                  <h3
-                    key={index}
-                    className="text-2xl font-bold text-brand-dark mt-8 mb-4"
-                  >
-                    {paragraph.replace("### ", "")}
-                  </h3>
-                );
-              }
-              if (paragraph.startsWith("## ")) {
-                return (
-                  <h2
-                    key={index}
-                    className="text-3xl font-bold text-brand-dark mt-12 mb-6"
-                  >
-                    {paragraph.replace("## ", "")}
-                  </h2>
-                );
+            {(() => {
+              const lines = post.content.split("\n");
+              const blocks: Array<{ type: "h2" | "h3" | "p" | "ul"; text: string[] }> = [];
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                if (line.startsWith("## ")) {
+                  blocks.push({ type: "h2", text: [line.slice(3)] });
+                } else if (line.startsWith("### ")) {
+                  blocks.push({ type: "h3", text: [line.slice(4)] });
+                } else if (/^[-*] /.test(line)) {
+                  const items = [line.slice(2)];
+                  while (i + 1 < lines.length && /^\s*[-*] /.test(lines[i + 1])) {
+                    items.push(lines[++i].trim().slice(2));
+                  }
+                  blocks.push({ type: "ul", text: items });
+                } else {
+                  blocks.push({ type: "p", text: [line] });
+                }
               }
 
-              // Handle empty lines
-              if (paragraph.trim() === "") {
-                return <br key={index} />;
-              }
+              const renderInline = (text: string) => {
+                const tokens = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g).filter(Boolean);
+                return tokens.map((token, tokenIndex) => {
+                  const linkMatch = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+                  if (linkMatch) {
+                    const href = linkMatch[2].trim();
+                    if (/^(https?:\/\/|mailto:|tel:|\/)/i.test(href)) {
+                      const external = /^https?:\/\//i.test(href);
+                      return (
+                        <a key={tokenIndex} href={href} className="text-primary-600 underline underline-offset-2 hover:text-primary-700" {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                          {linkMatch[1]}
+                        </a>
+                      );
+                    }
+                    return linkMatch[1];
+                  }
+                  const boldMatch = token.match(/^\*\*(.+)\*\*$/);
+                  if (boldMatch) return <strong key={tokenIndex}>{boldMatch[1]}</strong>;
+                  return token;
+                });
+              };
 
-              // Handle bold text
-              const formattedText = paragraph.replace(
-                /\*\*(.*?)\*\*/g,
-                "<strong>$1</strong>"
-              );
-
-              return (
-                <p
-                  key={index}
-                  className="text-gray-700 leading-relaxed mb-4"
-                  dangerouslySetInnerHTML={{ __html: formattedText }}
-                />
-              );
-            })}
+              return blocks.map((block, index) => {
+                if (block.type === "h2") return <h2 key={index} className="text-3xl font-bold text-brand-dark mt-12 mb-6">{renderInline(block.text[0])}</h2>;
+                if (block.type === "h3") return <h3 key={index} className="text-2xl font-bold text-brand-dark mt-8 mb-4">{renderInline(block.text[0])}</h3>;
+                if (block.type === "ul") return <ul key={index} className="list-disc pl-6 text-gray-700 leading-relaxed mb-5 space-y-2">{block.text.map((item, itemIndex) => <li key={itemIndex}>{renderInline(item)}</li>)}</ul>;
+                return <p key={index} className="text-gray-700 leading-relaxed mb-4">{renderInline(block.text[0])}</p>;
+              });
+            })()}
           </div>
 
           {/* Author Info */}

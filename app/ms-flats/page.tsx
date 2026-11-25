@@ -7,9 +7,9 @@ const product: ProductPageData = {
   category: "Mild Steel",
   img: "/img/MS-Flats.jpg",
   tagline: "MS Flat Bar Supplier in Pune",
-  headline: "MS Flats — Mild Steel Flat Bar Supplier in Pune",
-  desc: "Precision-rolled mild steel flat bars for fabrication, construction, and industrial machinery. Available in a wide range of thicknesses and widths.",
-  longDesc: `MS flat bars are precision-rolled mild steel sections used extensively across fabrication, construction, and industrial machinery. Available in a broad range of widths and thicknesses, they can be sheared, drilled, welded, and formed easily. Our IS 2062 E250 grade flats are sourced from reputed mills and quality-checked before dispatch from our Pune facility.`,
+  headline: "MS Flat Bars Supplier in Pune | IS 2062 E250 Steel Flats",
+  desc: "Buy MS flat bars in Pune: IS 2062 E250 mild steel flats, 12–300 mm widths and 3–50 mm thicknesses. 6 m lengths or cut-to-size options; request a B2B quote.",
+  longDesc: `MS flat bars (mild steel flats) are steel sections used for fabrication, construction, machine components and industrial equipment. Stellar Global Supplies lists IS 2062 E250 grade MS flats in widths from 12 mm to 300 mm and thicknesses from 3 mm to 50 mm. Standard 6 m lengths and cut-to-size requirements can be discussed when requesting a quote.\n\nWhen sourcing MS flat bars, specify width, thickness, length, grade, quantity and any drawing or fabrication requirements. Confirm the material specification and availability before ordering. These details help buyers and fabrication teams shortlist the correct section and reduce quote clarification cycles.`,
   specs: [
     [
         "Grade",
@@ -43,7 +43,7 @@ const product: ProductPageData = {
     "Architectural frameworks",
     "Agricultural equipment"
 ],
-  keywords: "ms flat bar supplier pune, mild steel flat pune, ms flat dealer india, flat bar steel pune, ms flat bar manufacturer",
+  keywords: "ms flat bar supplier pune, MS flats Pune, mild steel flat bars, IS 2062 E250 flats, MS flat bar sizes, MS flat steel supplier India, cut to size MS flats",
   relatedProducts: [
     {
         "name": "MS Angles",
@@ -63,14 +63,22 @@ const product: ProductPageData = {
 ],
   faqs: [
     {
-        "q": "Can MS flats be supplied in custom widths?",
-        "a": "Yes, we offer custom widths via slitting from standard sheets or sourcing from our mill partners. Contact us with your exact requirement."
+      q: "What sizes of MS flat bars are listed?",
+      a: "Our listed range is 12 mm to 300 mm width and 3 mm to 50 mm thickness. Confirm the exact size and availability for your requirement."
     },
     {
-        "q": "What is the minimum order for MS flats?",
-        "a": "We cater to both small and bulk orders. WhatsApp us your requirement and we will confirm the minimum quantity and pricing."
+      q: "Which grade of MS flats do you supply?",
+      a: "The product page lists IS 2062 E250 grade. Please share your drawing or specification if a particular grade or certificate is required."
+    },
+    {
+      q: "Can MS flats be supplied cut to length?",
+      a: "The page lists standard 6 m lengths or cut-to-size requirements. Contact us with the dimensions and quantity to confirm availability and service."
+    },
+    {
+      q: "What is the minimum order for MS flats?",
+      a: "We cater to small and bulk orders. WhatsApp your required dimensions and quantity so we can confirm the minimum order and quotation."
     }
-],
+  ],
 };
 
 export const metadata: Metadata = buildMetadata(product);

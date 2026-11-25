@@ -193,10 +193,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   blocks.push({ type: "h2", text: [line.slice(3)] });
                 } else if (line.startsWith("### ")) {
                   blocks.push({ type: "h3", text: [line.slice(4)] });
-                } else if (/^[-*] /.test(line)) {
-                  const items = [line.slice(2)];
-                  while (i + 1 < lines.length && /^\s*[-*] /.test(lines[i + 1])) {
-                    items.push(lines[++i].trim().slice(2));
+                } else if (/^[-*] |^\d+\. /.test(line)) {
+                  const items = [line.replace(/^[-*] |^\d+\. /, "")];
+                  while (i + 1 < lines.length && /^\s*[-*] |^\s*\d+\. /.test(lines[i + 1])) {
+                    items.push(lines[++i].trim().replace(/^[-*] |^\d+\. /, ""));
                   }
                   blocks.push({ type: "ul", text: items });
                 } else {

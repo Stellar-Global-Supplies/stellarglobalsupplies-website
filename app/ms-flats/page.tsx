@@ -63,14 +63,22 @@ const product: ProductPageData = {
 ],
   faqs: [
     {
-        "q": "Can MS flats be supplied in custom widths?",
-        "a": "Yes, we offer custom widths via slitting from standard sheets or sourcing from our mill partners. Contact us with your exact requirement."
+      q: "What sizes of MS flat bars are listed?",
+      a: "Our listed range is 12 mm to 300 mm width and 3 mm to 50 mm thickness. Confirm the exact size and availability for your requirement."
     },
     {
-        "q": "What is the minimum order for MS flats?",
-        "a": "We cater to both small and bulk orders. WhatsApp us your requirement and we will confirm the minimum quantity and pricing."
+      q: "Which grade of MS flats do you supply?",
+      a: "The product page lists IS 2062 E250 grade. Please share your drawing or specification if a particular grade or certificate is required."
+    },
+    {
+      q: "Can MS flats be supplied cut to length?",
+      a: "The page lists standard 6 m lengths or cut-to-size requirements. Contact us with the dimensions and quantity to confirm availability and service."
+    },
+    {
+      q: "What is the minimum order for MS flats?",
+      a: "We cater to small and bulk orders. WhatsApp your required dimensions and quantity so we can confirm the minimum order and quotation."
     }
-],
+  ],
 };
 
 export const metadata: Metadata = buildMetadata(product);

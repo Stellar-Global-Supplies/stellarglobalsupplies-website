@@ -127,8 +127,3 @@ Stellar Global Supplies lists cut-to-size/shearing support for MS sheets and cut
 Share your drawing or requirement—including material grade, thickness, sheet size, finish, quantity, application and delivery location—with Stellar Global Supplies. Our team can help you review the sourcing requirement and request a quotation for the relevant material.
 
 **[Request a sheet-material quotation on WhatsApp](https://wa.me/919637655556?text=Hello%20Stellar%20Global%20Supplies%2C%20I%20need%20a%20quotation%20for%20MS%20or%20SS%20sheets.%20Please%20contact%20me%20to%20discuss%20grade%2C%20thickness%2C%20dimensions%20and%20quantity.)** or [contact us by email](mailto:stellarglobalsupplies@gmail.com).
-
-### Further reading
-
-- [British Stainless Steel Association: How do I choose which stainless steel to use?](https://bssa.org.uk/bssa_articles/how-do-i-choose-which-stainless-steel-to-use/)
-- [worldstainless: Corrosion properties](https://worldstainless.org/about-stainless/properties/corrosion-properties/)

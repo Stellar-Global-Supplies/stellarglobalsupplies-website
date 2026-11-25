@@ -24,14 +24,14 @@ For fabrication shops, OEMs, contractors and procurement teams, selecting materi
 
 ## MS sheet vs SS sheet: quick comparison
 
-| Selection factor | Mild steel (MS) sheet | Stainless steel (SS) sheet |
-|---|---|---|
-| Typical purchase consideration | Often selected when initial material cost and fabrication requirements are key | Often selected when corrosion resistance, hygiene, appearance or finish are important |
-| Corrosion behaviour | Can rust when exposed to moisture and oxygen; protective coating or maintenance may be needed | Generally better corrosion resistance due to its chromium-rich passive surface, but grade and environment matter |
-| Finishes | Commonly supplied with mill-scale or pickled/oiled surfaces depending on type | Available in finishes such as 2B, brushed No.4, mirror and hairline, depending on grade and supply |
-| Fabrication | Suitable for many general fabrication and forming operations; confirm grade and thickness for the process | Formability and fabrication suitability depend on grade, thickness, finish and process |
-| Common use cases | Enclosures, tank fabrication, automotive parts, building cladding and general fabrication | Kitchen equipment, cladding, chemical equipment, elevator interiors and pharmaceutical tables, subject to material suitability |
-| Lifecycle consideration | Account for painting/coating, inspection and maintenance if corrosion protection is required | Consider grade selection, cleaning, exposure and finish—not just the label “stainless” |
+Instead of a table, compare the key factors below:
+
+- **Typical purchase consideration:** MS is often chosen when initial material cost and fabrication requirements are key. SS is often considered when corrosion resistance, hygiene, appearance or finish matter.
+- **Corrosion behaviour:** MS can rust when exposed to moisture and oxygen; protective coating or maintenance may be needed. SS generally has better corrosion resistance due to its chromium-rich passive surface, but grade and environment matter.
+- **Finishes:** MS may be supplied with mill-scale or pickled/oiled surfaces depending on type. SS finishes can include 2B, brushed No.4, mirror and hairline, depending on grade and supply.
+- **Fabrication:** MS is suitable for many general fabrication operations; confirm grade and thickness. SS formability and fabrication suitability depend on grade, thickness, finish and process.
+- **Common use cases:** MS is used for enclosures, tank fabrication, automotive parts, building cladding and general fabrication. SS may suit kitchen equipment, cladding, chemical equipment, elevator interiors and pharmaceutical tables, subject to suitability.
+- **Lifecycle:** For MS, account for painting/coating, inspection and maintenance if corrosion protection is required. For SS, consider grade selection, cleaning, exposure and finish—not just the label “stainless”.
 
 ## When should you choose mild steel sheets?
 

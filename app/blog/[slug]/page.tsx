@@ -65,7 +65,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: post.seoTitle || post.title,
-      description: post.excerpt,
+      description: post.seoDescription || post.excerpt,
       images: [post.image.startsWith("http") ? post.image : `${siteUrl}${post.image}`],
     },
     alternates: {

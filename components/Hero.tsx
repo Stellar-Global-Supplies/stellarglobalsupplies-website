@@ -132,7 +132,7 @@ export default function Hero() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              India&apos;s Most{" "}
+              Industrial{" "}
               <span
                 style={{
                   background: "linear-gradient(90deg, #00B98E, #4dffd4, #FF6922)",

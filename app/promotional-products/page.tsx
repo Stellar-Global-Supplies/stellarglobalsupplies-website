@@ -10,9 +10,9 @@ import PromoBanner from "@/components/PromoBanner";
 import { Phone, Mail, CheckCircle2, ArrowLeft, Package } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies Pune",
+  title: { absolute: "Industrial Fasteners Offers in Pune" },
   description:
-    "Exclusive promotional industrial fasteners from Stellar Global Supplies, Pune. Special pricing on MS NYLOCK NUTs (M5–M10), Internal Circlips DIN 472 (B8–B100), External Circlips DIN 471 (A6–A100), Nordlock Washers (M6–M24), and T-Nuts (M4–M8). Premium quality, ISO certified, bulk order discounts available. Get free quote today!",
+     "Featured industrial fasteners from Stellar Global Supplies, Pune. Browse MS Nylock nuts, DIN 472 and DIN 471 circlips, Nordlock washers and T-nuts. Request a quotation for sizes and quantities.",
   keywords: [
     "promotional industrial products",
     "MS NYLOCK NUT M5 M6 M8 M10",
@@ -24,25 +24,24 @@ export const metadata: Metadata = {
     "aluminum extrusion T-nuts Pune",
     "industrial fasteners on sale",
     "special offer fasteners",
-    "bulk order discounts",
+    "bulk fastener enquiries",
     "Stellar Global Supplies promotional",
     "Pune fastener supplier",
     "vibration proof nuts",
     "locking washers",
     "retaining rings",
     "DIN standard circlips",
-    "premium quality fasteners",
-    "ISO certified industrial supplies",
+    "industrial fastener products",
+    
     "wholesale industrial products",
     "fastener deals Pune",
     "industrial hardware promotions",
   ],
   openGraph: {
-    title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies",
-    description:
-      "Exclusive deals on premium industrial fasteners. MS NYLOCK NUTs, DIN Circlips, Nordlock Washers — special pricing for bulk orders. Quality guaranteed.",
+    title: "Industrial Fasteners Offers | Stellar Global Supplies",
+    description: "Featured MS Nylock nuts, DIN circlips, Nordlock washers and T-nuts. Request a quote for your required sizes and quantities.",
     type: "website",
-    url: "https://www.stellarglobalsupplies.com/promotional-products",
+    url: "https://stellarglobalsupplies.com/promotional-products/",
     siteName: "Stellar Global Supplies",
     images: [
       {
@@ -56,14 +55,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies",
-    description:
-      "Exclusive deals on premium industrial fasteners. MS NYLOCK NUTs, DIN Circlips, Nordlock Washers — special pricing for bulk orders.",
+    title: "Industrial Fasteners Offers | Stellar Global Supplies",
+    description: "Featured MS Nylock nuts, DIN circlips, Nordlock washers and T-nuts. Request a quote for your required sizes and quantities.",
     images: ["/img/og-image.jpg"],
     site: "@stellarglobal",
   },
   alternates: {
-    canonical: "https://www.stellarglobalsupplies.com/promotional-products",
+    canonical: "https://stellarglobalsupplies.com/promotional-products/",
   },
 };
 
@@ -75,15 +73,14 @@ const PRODUCTS = [
     img: "/img/01_nyloc_nut.png",
     tagline: "Vibration-proof fastening solution",
     grade: "Grade 982",
-    description:
-      "Premium MS NYLOCK NUTS with a nylon insert that deforms during installation, creating a resilient thread lock preventing loosening from vibration and shock. Ideal for automotive, machinery, and structural applications where safety is critical.",
+    description: "MS Nylock nuts with a nylon insert locking feature. Confirm thread size, grade, coating and application requirements before ordering.",
     sizes: ["M5X0.80", "M6X1.00", "M8X1.25", "M10X1.00", "M10X1.50"],
     features: [
-      "Nylon insert for superior locking",
-      "Vibration and shock resistant",
-      "Reusable up to 10 times",
-      "Wide temperature range (−30°C to +110°C)",
-      "Excellent corrosion resistance",
+      "Nylon insert locking feature",
+      "Confirm application suitability for vibration or shock",
+      "Confirm reuse requirements for the assembly",
+      "Confirm operating temperature requirements",
+      "Confirm coating and corrosion requirements",
     ],
   },
   {
@@ -92,15 +89,14 @@ const PRODUCTS = [
     img: "/img/02_internal_circlips_DIN472.png",
     tagline: "Precision bore retention rings",
     grade: "DIN 472",
-    description:
-      "High-quality internal circlips manufactured to DIN 472 standards. Designed for secure retention in housings and bores, providing axial location for bearings, gears, and other components. High-grade spring steel for maximum durability and fatigue resistance.",
+    description: "Internal retaining rings listed to DIN 472 for bore retention. Confirm the bore size, ring dimensions and material requirements against the drawing.",
     sizes: ["B8 to B100"],
     features: [
       "Manufactured to DIN 472 standards",
-      "High-grade spring steel construction",
-      "Precision formed for perfect fit",
-      "Excellent fatigue resistance",
-      "Smooth bearing surface finish",
+      "Confirm material and finish for the application",
+      "Select the ring size to match the specified bore",
+      "Confirm service conditions and requirements",
+      "Share the drawing or specification when requesting a quote",
     ],
   },
   {
@@ -109,15 +105,14 @@ const PRODUCTS = [
     img: "/img/03_external_circlips_DIN471.png",
     tagline: "Reliable shaft retention solution",
     grade: "DIN 471",
-    description:
-      "Durable external circlips conforming to DIN 471 specifications for secure retention on shafts and spindles. Provides axial location for bearings, pulleys, and other components. Premium spring steel with excellent tensile strength and fatigue properties.",
+    description: "External retaining rings listed to DIN 471 for shaft retention. Confirm shaft diameter, ring dimensions and material requirements against the drawing.",
     sizes: ["A6 to A100"],
     features: [
       "Manufactured to DIN 471 standards",
-      "Premium spring steel material",
-      "High tensile strength",
-      "Superior fatigue resistance",
-      "Precision manufactured tolerances",
+      "Confirm material and finish for the application",
+      "Select the ring size to match the specified shaft",
+      "Confirm service conditions and requirements",
+      "Share the drawing or specification when requesting a quote",
     ],
   },
   {
@@ -126,15 +121,14 @@ const PRODUCTS = [
     img: "/img/04_nordlock_washers.png",
     tagline: "Advanced wedge-locking technology",
     grade: "Standard Grade",
-    description:
-      "Premium Nordlock washers using innovative wedge-locking technology for superior bolt security. The cam-action design creates a powerful wedge effect that prevents bolt loosening even under extreme vibration and dynamic loads — the preferred choice for construction, mining, and heavy machinery.",
+    description: "Nordlock wedge-locking washers are designed to resist loosening in bolted joints. Confirm washer size, mating surfaces and installation requirements for the application.",
     sizes: ["M6 to M24"],
     features: [
       "Wedge-locking cam technology",
-      "Eliminates bolt loosening completely",
-      "Reusable multiple times",
-      "Works with standard bolts & nuts",
-      "Superior to conventional lock washers",
+      "Designed to resist loosening; verify application suitability",
+      "Confirm replacement or reuse requirements",
+      "Confirm bolt, nut and surface compatibility",
+      "Share the joint details to confirm the required type",
     ],
   },
   {
@@ -142,16 +136,15 @@ const PRODUCTS = [
     name: "T-Nuts",
     img: "/img/05_t_nuts.png",
     tagline: "Precise thread, strong & reliable",
-    grade: "Premium Quality",
-    description:
-      "High-quality T-nuts designed for secure sliding or drop-in fastening in aluminum extrusion profiles. Featuring precise threading and a durable long-lasting build, these T-nuts provide strong, reliable anchor points for modular machine frames, CNC builds, conveyor systems, and solar mounting structures.",
+    grade: "M4–M8",
+    description: "T-nuts for fastening in compatible extrusion profiles. Confirm thread size, profile or slot compatibility and required style before ordering.",
     sizes: ["M4", "M5", "M6", "M8"],
     features: [
       "Precise thread for secure fastening",
       "Strong & reliable under load",
-      "Compatible with 20, 30 & 40-series extrusions",
-      "Durable long-lasting construction",
-      "Roll-in and drop-in types available",
+      "Confirm profile and slot compatibility before ordering",
+      "Confirm profile, slot and installation compatibility",
+      "Specify the required T-nut style",
     ],
   },
 ];
@@ -295,7 +288,7 @@ export default function PromotionalProductsPage() {
           name: "Promotional Industrial Products",
           description:
             "Special promotional industrial fasteners and components from Stellar Global Supplies",
-          url: "https://www.stellarglobalsupplies.com/promotional-products",
+          url: "https://stellarglobalsupplies.com/promotional-products/",
           numberOfItems: PRODUCTS.length,
           itemListElement: PRODUCTS.map((p, i) => ({
             "@type": "ListItem",
@@ -305,13 +298,10 @@ export default function PromotionalProductsPage() {
               name: p.name,
               description: p.description,
               category: "Industrial Fasteners",
-              brand: { "@type": "Brand", name: "Stellar Global Supplies" },
-              offers: {
-                "@type": "Offer",
-                priceCurrency: "INR",
-                availability: "https://schema.org/InStock",
-                seller: { "@type": "Organization", name: "Stellar Global Supplies" },
-              },
+              additionalProperty: [
+                { "@type": "PropertyValue", name: "Listed grade or standard", value: p.grade },
+                { "@type": "PropertyValue", name: "Listed sizes", value: p.sizes.join(", ") },
+              ],
             },
           })),
         }}
@@ -359,7 +349,7 @@ export default function PromotionalProductsPage() {
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" aria-hidden="true" />
-                Special Offers
+                Featured Products
               </span>
             </div>
 
@@ -367,7 +357,7 @@ export default function PromotionalProductsPage() {
               id="page-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight"
             >
-              Premium{" "}
+              Featured{" "}
               <span
                 style={{
                   background: "linear-gradient(90deg, #00B98E, #4dffd4)",
@@ -380,17 +370,16 @@ export default function PromotionalProductsPage() {
               </span>
             </h1>
             <p className="text-white/70 text-base lg:text-lg max-w-2xl leading-relaxed">
-              Exclusive selection of high-quality industrial fasteners and components at special promotional pricing. 
-              Each product is quality-verified and ready for bulk orders.
+              Featured industrial fasteners and components. Share the required size and quantity to confirm specifications, availability, pricing and delivery terms.
             </p>
 
             {/* Quick stat strip */}
             <div className="flex flex-wrap gap-4 mt-8">
               {[
                 { label: "Products Featured", val: "5" },
-                { label: "In Stock", val: "All" },
-                { label: "Bulk Discounts", val: "Yes" },
-                { label: "Delivery", val: "Fast" },
+                { label: "Availability", val: "Confirm" },
+                { label: "Pricing", val: "Quote" },
+                { label: "Delivery", val: "Confirm" },
               ].map(({ label, val }) => (
                 <div
                   key={label}
@@ -433,8 +422,7 @@ export default function PromotionalProductsPage() {
               Ready to Place a Bulk Order?
             </h2>
             <p className="text-white/70 text-base mb-8 max-w-xl mx-auto leading-relaxed">
-              Contact us today for special pricing, volume discounts, and customised solutions. 
-              Our team responds within 2 business hours.
+              Share your required sizes, grades, quantity and delivery location. We will confirm specifications and quotation details.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

@@ -3,9 +3,8 @@ import BlogCard from "@/components/BlogCard";
 import { getAllBlogPosts, getBlogPostsByTag } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog | Stellar Global Supplies - Industrial Supplies Insights",
-  description:
-    "Stay updated with the latest insights on industrial supplies, B2B procurement, supply chain management, and stainless steel & mild steel products from Pune's trusted supplier.",
+  title: { absolute: "Industrial Supplies Blog | Stellar Global Supplies" },
+  description: "Buyer guides and sourcing information for stainless steel, mild steel, industrial fasteners and B2B procurement from Stellar Global Supplies in Pune.",
   keywords: [
     "industrial supplies blog",
     "B2B procurement tips",
@@ -17,11 +16,10 @@ export const metadata: Metadata = {
     "Stellar Global Supplies blog",
   ],
   openGraph: {
-    title: "Blog | Stellar Global Supplies - Industrial Supplies Insights",
-    description:
-      "Expert insights on industrial supplies, procurement strategies, and supply chain optimization from Pune's leading supplier.",
+    title: "Industrial Supplies Blog | Stellar Global Supplies",
+    description: "Buyer guides on industrial materials, fastening products and B2B sourcing.",
     type: "website",
-    url: "https://www.stellarglobalsupplies.com/blog",
+    url: "https://stellarglobalsupplies.com/blog/",
     siteName: "Stellar Global Supplies",
     images: [
       {
@@ -35,13 +33,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Stellar Global Supplies",
-    description:
-      "Expert insights on industrial supplies and B2B procurement from Pune's trusted supplier.",
+    title: "Industrial Supplies Blog | Stellar Global Supplies",
+    description: "Buyer guides on industrial materials, fastening products and B2B sourcing.",
     images: ["/img/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://www.stellarglobalsupplies.com/blog",
+    canonical: "https://stellarglobalsupplies.com/blog/",
   },
 };
 
@@ -55,13 +52,13 @@ export default function BlogPage() {
     name: "Stellar Global Supplies Blog",
     description:
       "Expert insights on industrial supplies, procurement strategies, and supply chain optimization.",
-    url: "https://www.stellarglobalsupplies.com/blog",
+    url: "https://stellarglobalsupplies.com/blog/",
     publisher: {
       "@type": "Organization",
       name: "Stellar Global Supplies",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.stellarglobalsupplies.com/img/logo.jpg",
+        url: "https://stellarglobalsupplies.com/img/logo.jpg",
       },
     },
     blogPost: blogPosts.map((post) => ({
@@ -73,8 +70,8 @@ export default function BlogPage() {
         name: post.author,
       },
       description: post.excerpt,
-      image: post.image,
-      url: `https://www.stellarglobalsupplies.com/blog/${post.slug}`,
+      image: post.image.startsWith("http") ? post.image : `https://stellarglobalsupplies.com${post.image}`,
+      url: `https://stellarglobalsupplies.com/blog/${post.slug}/`,
     })),
   };
 
@@ -139,9 +136,7 @@ export default function BlogPage() {
                 Need Industrial Supplies?
               </h3>
               <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Partner with Stellar Global Supplies for premium stainless steel,
-                mild steel, and industrial fastening products. Quality guaranteed,
-                delivered fast from Pune.
+                Source stainless steel, mild steel and industrial fastening products from Stellar Global Supplies in Pune. Share your specifications to request a quotation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

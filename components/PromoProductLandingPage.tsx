@@ -34,15 +34,16 @@ function waLink(productName: string) {
 
 // ── METADATA HELPER ───────────────────────────────────────────────────────────
 export function buildPromoMetadata(p: PromoProductData): Metadata {
+  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
   return {
-    title: `${p.headline} | Stellar Global Supplies`,
+    title: { absolute: seoTitle },
     description: p.metaDesc,
     keywords: p.keywords,
-    alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}` },
+    alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}/` },
     openGraph: {
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.metaDesc,
-      url: `https://stellarglobalsupplies.com/${p.slug}`,
+      url: `https://stellarglobalsupplies.com/${p.slug}/`,
       siteName: "Stellar Global Supplies",
       images: [{ url: `https://stellarglobalsupplies.com${p.img}`, width: 1200, height: 630, alt: `${p.name} – Stellar Global Supplies Pune` }],
       locale: "en_IN",
@@ -50,7 +51,7 @@ export function buildPromoMetadata(p: PromoProductData): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.metaDesc,
       images: [`https://stellarglobalsupplies.com${p.img}`],
     },
@@ -66,20 +67,13 @@ function StructuredData({ p }: { p: PromoProductData }) {
     name: p.name,
     description: p.desc,
     image: `https://stellarglobalsupplies.com${p.img}`,
-    url: `https://stellarglobalsupplies.com/${p.slug}`,
+    url: `https://stellarglobalsupplies.com/${p.slug}/`,
     category: "Industrial Fasteners",
-    brand: { "@type": "Brand", name: "Stellar Global Supplies" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "LocalBusiness",
-        name: "Stellar Global Supplies",
-        telephone: "+91-9637655556",
-        address: { "@type": "PostalAddress", addressLocality: "Pune", addressRegion: "Maharashtra", addressCountry: "IN" },
-      },
-    },
+    additionalProperty: p.specs.map(([name, value]) => ({
+      "@type": "PropertyValue",
+      name,
+      value,
+    })),
   };
 
   const breadcrumb = {
@@ -87,8 +81,8 @@ function StructuredData({ p }: { p: PromoProductData }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://stellarglobalsupplies.com" },
-      { "@type": "ListItem", position: 2, name: "Promotional Products", item: "https://stellarglobalsupplies.com/promotional-products" },
-      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}` },
+      { "@type": "ListItem", position: 2, name: "Promotional Products", item: "https://stellarglobalsupplies.com/promotional-products/" },
+      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}/` },
     ],
   };
 
@@ -144,7 +138,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="hover:underline" style={{ color: "var(--primary)" }}>Home</Link></li>
             <li aria-hidden="true">›</li>
-            <li><Link href="/promotional-products" className="hover:underline" style={{ color: "var(--primary)" }}>Promotional Products</Link></li>
+            <li><Link href="/promotional-products/" className="hover:underline" style={{ color: "var(--primary)" }}>Promotional Products</Link></li>
             <li aria-hidden="true">›</li>
             <li className="text-gray-700 font-medium">{p.name}</li>
           </ol>
@@ -189,7 +183,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
                   </a>
                 </div>
                 <div className="flex flex-wrap gap-4 mt-6">
-                  {["✅ Quality Verified", "🚚 Pan-India Delivery", "📦 Bulk Orders Welcome"].map((b) => (
+                  {["Specification-based sourcing", "Quote support", "Bulk enquiries welcome"].map((b) => (
                     <span key={b} className="text-xs text-gray-300 font-medium">{b}</span>
                   ))}
                 </div>
@@ -273,14 +267,14 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
               Why Buy {p.name} from Stellar Global Supplies?
             </h2>
             <p className="text-gray-500 text-sm mb-10 max-w-xl mx-auto">
-              Pune's trusted industrial procurement partner — quality verified, fast delivery, transparent pricing.
+              Share the required product specification, size and quantity to request a quotation.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: "🔥", title: "Promotional Pricing", body: "Special rates on featured products — ideal for bulk and repeat orders." },
-                { icon: "🏭", title: "Quality Verified", body: "Every batch sourced from certified suppliers and inspected before dispatch." },
-                { icon: "🚚", title: "Pan-India Delivery", body: "Reliable logistics from Pune to anywhere in India, on time." },
-                { icon: "💬", title: "WhatsApp Quote", body: "Share your requirement on WhatsApp and get a competitive price within hours." },
+                { icon: "🔥", title: "Quote-Based Sourcing", body: "Request pricing for listed products, sizes and quantities." },
+                { icon: "🏭", title: "Specification Check", body: "Confirm the required grade, standard, size and documentation before ordering." },
+                { icon: "🚚", title: "Delivery Terms", body: "Delivery location, lead time and terms are confirmed with each quotation." },
+                { icon: "💬", title: "WhatsApp Quote", body: "Share your sizes and quantity on WhatsApp to request pricing." },
               ].map((card) => (
                 <div key={card.title} className="rounded-2xl p-6 text-left border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
                   style={{ background: "var(--light)" }}>
@@ -323,7 +317,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
               <h2 className="text-2xl font-extrabold mb-8 text-center" style={{ color: "var(--dark)" }}>You Might Also Need</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
                 {p.relatedProducts.map((r) => (
-                  <Link key={r.slug} href={`/${r.slug}`}
+                  <Link key={r.slug} href={`/${r.slug}/`}
                     className="group rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
                     style={{ background: "var(--light)" }}>
                     <div className="relative h-28 bg-gray-50">
@@ -349,7 +343,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
               Ready to Order {p.name}?
             </h2>
             <p className="text-gray-300 text-sm mb-8">
-              Share your requirement on WhatsApp — size, quantity, and delivery location. We respond with a competitive quote within hours.
+              Share the required size, quantity and delivery location to request a quotation. Confirm price, availability and lead time with our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={wa} target="_blank" rel="noopener noreferrer"

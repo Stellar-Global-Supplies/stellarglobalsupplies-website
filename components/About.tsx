@@ -7,29 +7,29 @@ import { Target, TrendingUp, CheckCircle2, Globe } from "lucide-react";
 const VALUES = [
   {
     Icon: Target,
-    title: "Mission-Driven Sourcing",
-    body: "We don't just procure — we partner. Every order is matched to your exact requirement, spec, and budget.",
+    title: "Specification-Based Sourcing",
+    body: "Share the material grade, dimensions, application, quantity and budget so the sourcing request can be reviewed.",
     accent: "var(--primary)",
     bg: "rgba(0,185,142,0.06)",
   },
   {
     Icon: TrendingUp,
-    title: "Quality You Can Count On",
-    body: "Every batch is verified before dispatch. No shortcuts, no substitutions — only materials that meet the mark.",
+    title: "Specification Review",
+    body: "Confirm the required grade, inspection, material documents and acceptance criteria before ordering.",
     accent: "var(--secondary)",
     bg: "rgba(255,105,34,0.06)",
   },
   {
     Icon: Globe,
-    title: "One-Stop Procurement",
-    body: "Mild Steel, Stainless Steel, Fasteners — sourced from verified suppliers and delivered to your doorstep.",
+    title: "Product Categories",
+    body: "Browse mild steel, stainless steel and industrial fastener categories. Availability and delivery terms are confirmed with the quotation.",
     accent: "var(--primary)",
     bg: "rgba(0,185,142,0.06)",
   },
   {
     Icon: CheckCircle2,
-    title: "On-Time, Every Time",
-    body: "Your production schedule won't slip because of us. We treat deadlines as a commitment, not a target.",
+    title: "Delivery Coordination",
+    body: "Share your target date and delivery location so lead time and terms can be confirmed for the requirement.",
     accent: "var(--secondary)",
     bg: "rgba(255,105,34,0.06)",
   },
@@ -135,16 +135,13 @@ export default function About() {
               id="about-heading"
               className="section-heading"
             >
-              The #1 Place to Source{" "}
-              <span className="text-gradient">All Your Industrial</span>{" "}
-              Materials
+              Industrial Material{" "}
+              <span className="text-gradient">Sourcing Support</span>
             </h2>
 
             {/* Body */}
             <p className="section-sub text-base">
-              Stellar Global Supplies is a one-stop solution for all industrial procurement needs — 
-              specialising in trading and sourcing of high-quality raw materials. We cater to diverse 
-              industries with a commitment to seamless sourcing, reliable quality, and on-time delivery.
+              Stellar Global Supplies is a Pune-based B2B supplier focused on trading and sourcing stainless steel, mild steel and industrial fastening products. Procurement teams can share grade, dimensions, quantity and application to request a quotation and availability confirmation.
             </p>
 
             {/* Value grid – 2×2 bento */}

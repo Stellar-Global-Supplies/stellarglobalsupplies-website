@@ -20,16 +20,16 @@ const CONTACT_ITEMS = [
     label: "Email Us",
     value: "stellarglobalsupplies@gmail.com",
     href: "mailto:stellarglobalsupplies@gmail.com",
-    hint: "We reply within 24 hours",
+    hint: "Share your requirement for a quotation",
     nrEvent: "ClickToEmail",
   },
   {
     Icon: MapPin,
     label: "Visit Us",
     value: "Survey No-169, Gala No-3, Pandurang Industrial Complex, Rupee Nagar, Talawade, Pune – 411062",
-    href: "https://maps.google.com/?q=Talawade+Pune+411062",
-    hint: "Open: Mon–Sat",
-    nrEvent: "OpenMaps",
+    href: undefined,
+    hint: "Address details",
+    nrEvent: "ViewAddress",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function CTASection() {
           </h2>
           <p className="text-white/65 text-base md:text-lg mb-8 max-w-2xl mx-auto">
             Tell us your requirement — material, grade, quantity, timeline — and{" "}
-            we&apos;ll have a competitive quote back to you within 24 hours.
+            we can confirm availability, pricing and delivery details.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -167,10 +167,8 @@ export default function CTASection() {
               <a
                 key={label}
                 href={href}
-                target={label === "Visit Us" ? "_blank" : undefined}
-                rel={label === "Visit Us" ? "noopener noreferrer" : undefined}
                 // ── NR: contact card click ─────────────────────────────────
-                onClick={() => nr(nrEvent, { source: "contact-card", label })}
+                onClick={() => href && nr(nrEvent, { source: "contact-card", label })}
                 className={[
                   "bento-card border border-gray-100 p-6 flex flex-col gap-3 group no-underline",
                   "hover:border-primary-200 hover:bg-primary-50/30",

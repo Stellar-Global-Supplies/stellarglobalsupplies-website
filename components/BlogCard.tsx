@@ -32,7 +32,7 @@ export default function BlogCard({
   return (
     <article className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary-200 flex flex-col h-full">
       {/* Image */}
-      <Link href={`/blog/${slug}`} className="block relative overflow-hidden aspect-video">
+      <Link href={`/blog/${slug}/`} className="block relative overflow-hidden aspect-video">
         <Image
           src={image}
           alt={title}
@@ -59,7 +59,7 @@ export default function BlogCard({
         </div>
 
         {/* Title */}
-        <Link href={`/blog/${slug}`}>
+        <Link href={`/blog/${slug}/`}>
           <h3 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors line-clamp-2">
             {title}
           </h3>

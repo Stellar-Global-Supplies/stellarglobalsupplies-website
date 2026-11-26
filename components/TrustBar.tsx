@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { Package, Shield, Truck, Award } from "lucide-react";
 
 const STATS = [
-  { value: "500",   suffix: "+", label: "Industrial Products",   Icon: Package,  hint: "SS, MS & Fasteners" },
-  { value: "100",   suffix: "%", label: "Quality Verified",      Icon: Shield,   hint: "Every batch inspected" },
-  { value: "3",     suffix: "",  label: "Product Categories",    Icon: Award,    hint: "MS · SS · Fasteners" },
-  { value: "24",    suffix: "h", label: "Quote Turnaround",      Icon: Truck,    hint: "Fast response guaranteed" },
+  { value: "MS", suffix: "", label: "Mild Steel", Icon: Package, hint: "Sheets, angles, flats and pipes" },
+  { value: "SS", suffix: "", label: "Stainless Steel", Icon: Shield, hint: "Sheets, bars and sections" },
+  { value: "Fasteners", suffix: "", label: "Industrial Fasteners", Icon: Award, hint: "Bolts, nuts, washers and circlips" },
+  { value: "RFQ", suffix: "", label: "Quote Support", Icon: Truck, hint: "Share specifications and quantity" },
 ];
 
 function AnimatedNumber({
@@ -20,11 +20,12 @@ function AnimatedNumber({
   active: boolean;
 }) {
   const num = parseInt(value, 10);
+  const numeric = Number.isFinite(num);
   const [count, setCount] = useState(0);
   const started = useRef(false);
 
   useEffect(() => {
-    if (!active || started.current) return;
+    if (!numeric || !active || started.current) return;
     started.current = true;
 
     const duration = 1000;
@@ -38,7 +39,9 @@ function AnimatedNumber({
       else setCount(num);
     };
     requestAnimationFrame(tick);
-  }, [active, num]);
+  }, [active, num, numeric]);
+
+  if (!numeric) return <span>{value}{suffix}</span>;
 
   return (
     <span>

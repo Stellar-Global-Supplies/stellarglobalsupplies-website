@@ -35,7 +35,7 @@ export default function PromoBanner() {
       </p>
 
       <Link
-        href="/promotional-products"
+        href="/promotional-products/"
         className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105"
         style={{ background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.30)" }}
         aria-label="View promotional products"

@@ -122,7 +122,7 @@ function ProductCard({
 
         {/* Subtle CTA */}
         <Link
-          href={`/${slug}`}
+          href={`/${slug}/`}
           className="mt-3 text-xs font-semibold flex items-center gap-1 group/btn"
           style={{ color: "var(--primary)" }}
           aria-label={`View details for ${name}`}
@@ -163,7 +163,7 @@ export default function Products() {
     "@type": "ItemList",
     name: "Industrial Products Catalogue",
     description: "Complete range of Mild Steel, Stainless Steel, and Fastening products from Stellar Global Supplies",
-    url: "https://stellarglobalsupplies.com/products",
+    url: "https://stellarglobalsupplies.com/#products",
     numberOfItems: CATEGORIES.reduce((acc, cat) => acc + cat.products.length, 0),
     itemListElement: CATEGORIES.flatMap((cat, catIndex) =>
       cat.products.map((product, prodIndex) => ({
@@ -174,16 +174,7 @@ export default function Products() {
           name: product.name,
           description: product.desc,
           category: cat.label,
-          brand: "Stellar Global Supplies",
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
-            seller: {
-              "@type": "Organization",
-              name: "Stellar Global Supplies",
-            },
-          },
+          url: `https://stellarglobalsupplies.com/${product.slug}/`,
         },
       }))
     ),

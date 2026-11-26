@@ -31,15 +31,16 @@ function waLink(productName: string) {
 
 // ── METADATA HELPER ───────────────────────────────────────────────────────────
 export function buildMetadata(p: ProductPageData): Metadata {
+  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
   return {
-    title: `${p.headline} | Stellar Global Supplies`,
+    title: { absolute: seoTitle },
     description: p.desc,
     keywords: p.keywords,
-    alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}` },
+    alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}/` },
     openGraph: {
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.desc,
-      url: `https://stellarglobalsupplies.com/${p.slug}`,
+      url: `https://stellarglobalsupplies.com/${p.slug}/`,
       siteName: "Stellar Global Supplies",
       images: [
         {
@@ -54,7 +55,7 @@ export function buildMetadata(p: ProductPageData): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.desc,
       images: [`https://stellarglobalsupplies.com${p.img}`],
     },
@@ -74,28 +75,13 @@ function StructuredData({ p }: { p: ProductPageData }) {
     name: p.name,
     description: p.desc,
     image: `https://stellarglobalsupplies.com${p.img}`,
-    url: `https://stellarglobalsupplies.com/${p.slug}`,
+    url: `https://stellarglobalsupplies.com/${p.slug}/`,
     category: p.category,
-    brand: { "@type": "Brand", name: "Stellar Global Supplies" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "LocalBusiness",
-        name: "Stellar Global Supplies",
-        telephone: "+91-9637655556",
-        email: "stellarglobalsupplies@gmail.com",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Survey No-169, Gala No-3, Pandurang Industrial Complex, Rupee Nagar, Talawade",
-          addressLocality: "Pune",
-          addressRegion: "Maharashtra",
-          postalCode: "411062",
-          addressCountry: "IN",
-        },
-      },
-    },
+    additionalProperty: p.specs.map(([name, value]) => ({
+      "@type": "PropertyValue",
+      name,
+      value,
+    })),
   };
 
   const breadcrumb = {
@@ -104,7 +90,7 @@ function StructuredData({ p }: { p: ProductPageData }) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://stellarglobalsupplies.com" },
       { "@type": "ListItem", position: 2, name: p.category, item: `https://stellarglobalsupplies.com/#products` },
-      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}` },
+      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}/` },
     ],
   };
 
@@ -225,7 +211,7 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
 
                 {/* Trust badges */}
                 <div className="flex flex-wrap gap-4 mt-6">
-                  {["✅ Quality Verified", "🚚 Pan-India Delivery", "📦 Bulk Orders Welcome"].map((b) => (
+                  {["Specification-based sourcing", "Quote support", "Bulk enquiries welcome"].map((b) => (
                     <span key={b} className="text-xs text-gray-300 font-medium">{b}</span>
                   ))}
                 </div>
@@ -325,14 +311,14 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
               Why Source {p.name} from Stellar Global Supplies?
             </h2>
             <p className="text-gray-500 text-sm mb-10 max-w-xl mx-auto">
-              Pune's one-stop industrial procurement partner — quality verified, fast delivery, transparent pricing.
+              Share the product specification, quantity and delivery location to request a quotation.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: "🏭", title: "Quality Verified", body: "Every batch sourced from certified suppliers and inspected before dispatch." },
-                { icon: "🚚", title: "Pan-India Delivery", body: "Reliable logistics from Pune to anywhere in India, on time." },
-                { icon: "💬", title: "Quick Quote via WhatsApp", body: "Share your spec on WhatsApp and get a competitive price within hours." },
-                { icon: "📦", title: "Bulk & Custom Orders", body: "MOQ flexible. Custom sizes, grades, and cut-to-length available." },
+                { icon: "🏭", title: "Specification Review", body: "Confirm the required grade, dimensions and documentation before ordering." },
+                { icon: "🚚", title: "Delivery Terms", body: "Confirm destination, lead time and delivery terms with the quotation." },
+                { icon: "💬", title: "Quote Support", body: "Send size, grade, quantity and delivery location to request pricing." },
+                { icon: "📦", title: "Bulk Enquiries", body: "Share quantity and custom requirements; confirm MOQ and services with the quotation." },
               ].map((card) => (
                 <div
                   key={card.title}
@@ -388,7 +374,7 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
                 {p.relatedProducts.map((r) => (
                   <Link
                     key={r.slug}
-                    href={`/${r.slug}`}
+                    href={`/${r.slug}/`}
                     className="group rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
                     style={{ background: "var(--light)" }}
                   >
@@ -423,7 +409,7 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
               Ready to Order {p.name}?
             </h2>
             <p className="text-gray-300 text-sm mb-8">
-              Share your requirement on WhatsApp — material grade, size, quantity, and delivery location. We'll respond with a competitive quote within hours.
+              Share your material grade, dimensions, quantity and delivery location to request a quotation. Confirm price, availability and lead time with our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

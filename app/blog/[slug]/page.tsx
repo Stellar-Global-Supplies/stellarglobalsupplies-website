@@ -30,12 +30,12 @@ export async function generateMetadata({
     };
   }
 
-  const siteUrl = "https://www.stellarglobalsupplies.com";
-  const postUrl = `${siteUrl}/blog/${post.slug}`;
+  const siteUrl = "https://stellarglobalsupplies.com";
+  const postUrl = `${siteUrl}/blog/${post.slug}/`;
 
   return {
-    title: `${post.title} | Stellar Global Supplies Blog`,
-    description: post.excerpt,
+    title: post.seoTitle || post.title,
+    description: post.seoDescription || post.excerpt,
     keywords: [
       ...post.tags,
       "Stellar Global Supplies",
@@ -44,14 +44,14 @@ export async function generateMetadata({
       "Pune",
     ],
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: post.seoTitle || post.title,
+      description: post.seoDescription || post.excerpt,
       type: "article",
       url: postUrl,
       siteName: "Stellar Global Supplies",
       images: [
         {
-          url: post.image,
+          url: post.image.startsWith("http") ? post.image : `${siteUrl}${post.image}`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -64,9 +64,9 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-      images: [post.image],
+      title: post.seoTitle || post.title,
+      description: post.seoDescription || post.excerpt,
+      images: [post.image.startsWith("http") ? post.image : `${siteUrl}${post.image}`],
     },
     alternates: {
       canonical: postUrl,
@@ -99,14 +99,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: post.author,
     },
     description: post.excerpt,
-    image: post.image,
-    url: `https://www.stellarglobalsupplies.com/blog/${post.slug}`,
+    image: post.image.startsWith("http") ? post.image : `https://stellarglobalsupplies.com${post.image}`,
+    url: `https://stellarglobalsupplies.com/blog/${post.slug}/`,
     publisher: {
       "@type": "Organization",
       name: "Stellar Global Supplies",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.stellarglobalsupplies.com/img/logo.jpg",
+        url: "https://stellarglobalsupplies.com/img/logo.jpg",
       },
     },
     mainEntityOfPage: {
@@ -210,8 +210,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   const linkMatch = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
                   if (linkMatch) {
                     const href = linkMatch[2].trim();
-                    if (/^(https?:\/\/|mailto:|tel:|\/)/i.test(href)) {
-                      const external = /^https?:\/\//i.test(href);
+                    const sameSite = /^https:\/\/(?:www\.)?stellarglobalsupplies\.com(?:\/|$)/i.test(href);
+                    const internalPath = href.startsWith("/") && !href.startsWith("//");
+                    const approvedContact = href === "mailto:stellarglobalsupplies@gmail.com" || href === "tel:+919637655556" || /^https:\/\/wa\.me\/919637655556(?:\?|$)/i.test(href);
+                    if (sameSite || internalPath || approvedContact) {
+                      const external = /^https:\/\/wa\.me\/919637655556(?:\?|$)/i.test(href);
                       return (
                         <a key={tokenIndex} href={href} className="text-primary-600 underline underline-offset-2 hover:text-primary-700" {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                           {linkMatch[1]}
@@ -257,7 +260,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Back to Blog */}
           <div className="mt-12">
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold group"
             >
               <ArrowLeft
@@ -275,9 +278,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Ready to Source Industrial Supplies?
             </h3>
             <p className="text-lg text-gray-700 mb-6 text-center max-w-2xl mx-auto">
-              Partner with Stellar Global Supplies for premium stainless steel,
-              mild steel, and industrial fastening products. Quality guaranteed,
-              delivered fast from Pune.
+              Source stainless steel, mild steel and industrial fastening products from Stellar Global Supplies in Pune. Share your specifications to request a quotation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

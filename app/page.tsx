@@ -13,9 +13,8 @@ import BackToTop           from "@/components/BackToTop";
 import ChatWidget          from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
-  title: "Stellar Global Supplies | Premium SS, MS & Industrial Fasteners – Pune",
-  description:
-    "India's leading industrial supply partner in Pune. Premium Stainless Steel, Mild Steel products, MS NYLOCK NUTs, Circlips, Nordlock Washers & all fastening solutions. 500+ businesses trust us. Quality verified, fast delivery. Get free quote!",
+  title: { absolute: "Industrial Steel & Fasteners Supplier in Pune" },
+  description: "Pune-based B2B supplier of stainless steel, mild steel sheets, angles, flats, pipes and industrial fasteners. Share your specifications and request a quotation.",
   keywords: [
     "Stellar Global Supplies",
     "industrial supplies Pune",
@@ -40,13 +39,12 @@ export const metadata: Metadata = {
     "MS channels angles",
     "SS sheets plates",
     "promotional products",
-    "bulk order discounts",
-    "ISO certified supplies",
+    "bulk industrial sourcing",
+    "industrial procurement quotation",
   ],
   openGraph: {
-    title: "Stellar Global Supplies | Premium SS, MS & Industrial Fasteners – Pune",
-    description:
-      "India's leading industrial supply partner. Premium Stainless Steel, Mild Steel, MS NYLOCK NUTs, Circlips, Nordlock Washers. Quality verified, fast delivery from Pune.",
+    title: "Industrial Steel & Fasteners Supplier in Pune",
+    description: "Pune-based supplier of stainless steel, mild steel and industrial fasteners for B2B sourcing. Request a quotation for your material requirements.",
     type: "website",
     url: "https://stellarglobalsupplies.com",
     siteName: "Stellar Global Supplies",
@@ -62,14 +60,39 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stellar Global Supplies | Premium SS, MS & Industrial Fasteners – Pune",
-    description:
-      "India's leading industrial supply partner. Premium Stainless Steel, Mild Steel, MS NYLOCK NUTs, Circlips, Nordlock Washers.",
+    title: "Industrial Steel & Fasteners Supplier in Pune",
+    description: "Pune-based supplier of stainless steel, mild steel and industrial fasteners for B2B sourcing. Request a quotation for your material requirements.",
     images: ["/img/og-image.jpg"],
     site: "@stellarglobal",
   },
   alternates: {
     canonical: "https://stellarglobalsupplies.com",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://stellarglobalsupplies.com/#localbusiness",
+  name: "Stellar Global Supplies",
+  url: "https://stellarglobalsupplies.com/",
+  image: "https://stellarglobalsupplies.com/img/logo.jpg",
+  telephone: "+91-9637655556",
+  email: "stellarglobalsupplies@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Survey No-169, Gala No-3, Pandurang Industrial Complex, Rupee Nagar, Talawade",
+    addressLocality: "Pune",
+    addressRegion: "Maharashtra",
+    postalCode: "411062",
+    addressCountry: "IN",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 18.6727, longitude: 73.8196 },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
   },
 };
 

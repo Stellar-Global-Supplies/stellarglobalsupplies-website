@@ -13,7 +13,7 @@ const BENTO_ITEMS = [
     size: "col-span-2",   // wide card
     Icon: PackageSearch,
     title: "Single-Source Simplicity",
-    body: "Stop juggling 10 vendors. Every material — MS, SS, and Fasteners — from one trusted partner. Less friction, more focus on your production.",
+    body: "Browse MS, SS and fastening categories through one supplier contact. Confirm availability and terms for each requirement.",
     accent: "var(--primary)",
     bg: "from-emerald-50 to-white",
     image: "/img/Channels.jpg",
@@ -22,8 +22,8 @@ const BENTO_ITEMS = [
   {
     size: "col-span-1",
     Icon: Zap,
-    title: "Speed That Matches Demand",
-    body: "Urgent order? We move fast. Our supply chain is built for velocity without compromising verification.",
+    title: "Specification-Led Sourcing",
+    body: "Share grade, dimensions, application and quantity so the sourcing request can be reviewed.",
     accent: "var(--secondary)",
     bg: "from-orange-50 to-white",
     hasImage: false,
@@ -31,8 +31,8 @@ const BENTO_ITEMS = [
   {
     size: "col-span-1",
     Icon: ShieldCheck,
-    title: "Zero-Compromise Quality",
-    body: "Every product is sourced from verified suppliers and checked before it leaves our facility.",
+    title: "Specification and Document Review",
+    body: "Confirm grade, drawing, material documents and inspection requirements before ordering.",
     accent: "var(--primary)",
     bg: "from-emerald-50 to-white",
     hasImage: false,
@@ -40,8 +40,8 @@ const BENTO_ITEMS = [
   {
     size: "col-span-1",
     Icon: HeadphonesIcon,
-    title: "Dedicated Support",
-    body: "A real person answers when you call. One point of contact, full accountability.",
+    title: "Quote Support",
+    body: "Use phone, email or WhatsApp to share requirements and request a quotation.",
     accent: "var(--secondary)",
     bg: "from-orange-50 to-white",
     hasImage: false,
@@ -49,12 +49,12 @@ const BENTO_ITEMS = [
   {
     size: "col-span-2",   // wide card
     Icon: Factory,
-    title: "Built for Every Industry",
-    body: "Manufacturing, construction, pharma, food processing, auto — we understand your sector's material standards and deliver accordingly.",
+    title: "Product Applications",
+    body: "Applications vary by product. Share project standards and requirements so material suitability can be confirmed.",
     accent: "var(--dark)",
     bg: "from-slate-50 to-white",
     hasImage: false,
-    industries: ["Manufacturing", "Construction", "Pharma", "Auto", "Food Processing"],
+    industries: ["Mild Steel", "Stainless Steel", "Fasteners"],
   },
 ];
 
@@ -105,12 +105,11 @@ export default function BentoGrid() {
             Why Stellar Global
           </span>
           <h2 id="whyus-heading" className="section-heading mb-3">
-            Why Thousands of Buyers{" "}
-            <span className="text-gradient">Choose Us</span>
+            Why Source with{" "}
+            <span className="text-gradient">Stellar Global Supplies</span>
           </h2>
           <p className="section-sub">
-            We&apos;ve built our reputation on four pillars: speed, quality, transparency, 
-            and support. Here&apos;s what that looks like in practice.
+            Our approach is specification-led sourcing and quote support. Share your requirement so product details, availability and terms can be confirmed.
           </p>
         </div>
 

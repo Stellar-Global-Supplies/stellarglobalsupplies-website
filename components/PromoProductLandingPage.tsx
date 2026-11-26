@@ -33,14 +33,14 @@ function waLink(productName: string) {
 }
 
 // ── METADATA HELPER ───────────────────────────────────────────────────────────
-export function buildPromoMetadata(p: PromoProductData): Metadata {  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
+export function buildPromoMetadata(p: PromoProductData): Metadata {\n  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
   return {
     title: seoTitle,
     description: p.metaDesc,
     keywords: p.keywords,
     alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}/` },
     openGraph: {
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.metaDesc,
       url: `https://stellarglobalsupplies.com/${p.slug}/`,
       siteName: "Stellar Global Supplies",

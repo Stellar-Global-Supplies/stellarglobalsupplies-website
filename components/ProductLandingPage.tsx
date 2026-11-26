@@ -30,7 +30,9 @@ function waLink(productName: string) {
 }
 
 // ── METADATA HELPER ───────────────────────────────────────────────────────────
-export function buildMetadata(p: ProductPageData): Metadata {\n  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;\n  return {
+export function buildMetadata(p: ProductPageData): Metadata {
+  const seoTitle = ${p.name} Supplier in Pune | Stellar Global Supplies;
+  return {
     title: seoTitle,
     description: p.desc,
     keywords: p.keywords,
@@ -75,7 +77,11 @@ function StructuredData({ p }: { p: ProductPageData }) {
     image: `https://stellarglobalsupplies.com${p.img}`,
     url: `https://stellarglobalsupplies.com/${p.slug}/`,
     category: p.category,
-    additionalProperty: p.specs.map(([name, value]) => ({\n      "@type": "PropertyValue",\n      name,\n      value,\n    })),
+    additionalProperty: p.specs.map(([name, value]) => ({
+      "@type": "PropertyValue",
+      name,
+      value,
+    })),
   };
 
   const breadcrumb = {

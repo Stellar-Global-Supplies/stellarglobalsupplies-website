@@ -13,17 +13,17 @@ const QUICK_LINKS = [
 ];
 
 const PRODUCTS = [
-  { label: "MS Angles",         href: "/ms-angles" },
-  { label: "MS Flats",          href: "/ms-flats" },
-  { label: "MS Round Pipes",    href: "/ms-round-pipes" },
-  { label: "SS Channels",       href: "/ss-channels" },
-  { label: "SS Sheets",         href: "/ss-sheets" },
-  { label: "SS Round Bars",     href: "/ss-round-bars" },
-  { label: "Hex Bolts",         href: "/hex-bolts" },
-  { label: "Allen Bolts",       href: "/allen-bolts" },
-  { label: "Nylock Nuts",       href: "/nylock-nuts" },
-  { label: "Circlips",          href: "/external-circlip" },
-  { label: "Dowel Pins",        href: "/dowel-pins" },
+  { label: "MS Angles",         href: "/ms-angles/" },
+  { label: "MS Flats",          href: "/ms-flats/" },
+  { label: "MS Round Pipes",    href: "/ms-round-pipes/" },
+  { label: "SS Channels",       href: "/ss-channels/" },
+  { label: "SS Sheets",         href: "/ss-sheets/" },
+  { label: "SS Round Bars",     href: "/ss-round-bars/" },
+  { label: "Hex Bolts",         href: "/hex-bolts/" },
+  { label: "Allen Bolts",       href: "/allen-bolts/" },
+  { label: "Nylock Nuts",       href: "/nylock-nuts/" },
+  { label: "Circlips",          href: "/external-circlip/" },
+  { label: "Dowel Pins",        href: "/dowel-pins/" },
 ];
 
 export default function Footer() {
@@ -206,17 +206,7 @@ export default function Footer() {
             . All rights reserved.
           </p>
           <p>
-            Designed by{" "}
-            <a
-              href="https://www.linkedin.com/in/prasad-bhavsar-868a3019b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold hover:text-white transition-colors"
-              style={{ color: "rgba(255,255,255,0.6)" }}
-              aria-label="Designed by Prasad Bhavsar (opens LinkedIn)"
-            >
-              Prasad Bhavsar
-            </a>
+            Designed by <span className="font-semibold" style={{ color: "rgba(255,255,255,0.6)" }}>Prasad Bhavsar</span>
           </p>
         </div>
       </div>

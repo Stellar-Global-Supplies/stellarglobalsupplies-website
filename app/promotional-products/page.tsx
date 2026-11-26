@@ -288,7 +288,7 @@ export default function PromotionalProductsPage() {
           name: "Promotional Industrial Products",
           description:
             "Special promotional industrial fasteners and components from Stellar Global Supplies",
-          url: "https://www.stellarglobalsupplies.com/promotional-products",
+          url: "https://stellarglobalsupplies.com/promotional-products/",
           numberOfItems: PRODUCTS.length,
           itemListElement: PRODUCTS.map((p, i) => ({
             "@type": "ListItem",

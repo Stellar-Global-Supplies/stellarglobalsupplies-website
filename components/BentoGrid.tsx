@@ -105,8 +105,8 @@ export default function BentoGrid() {
             Why Stellar Global
           </span>
           <h2 id="whyus-heading" className="section-heading mb-3">
-            Why Source with Stellar Global Supplies{" "}
-            <span className="text-gradient">Choose Us</span>
+            Why Source with{" "}
+            <span className="text-gradient">Stellar Global Supplies</span>
           </h2>
           <p className="section-sub">
             Our approach is specification-led sourcing and quote support. Share your requirement so product details, availability and terms can be confirmed.

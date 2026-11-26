@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "industrial procurement quotation",
   ],
   openGraph: {
-    title: "Stellar Global Supplies | Premium SS, MS & Industrial Fasteners – Pune",
+    title: "Industrial Steel & Fasteners Supplier in Pune",
     description: "Pune-based supplier of stainless steel, mild steel and industrial fasteners for B2B sourcing. Request a quotation for your material requirements.",
     type: "website",
     url: "https://stellarglobalsupplies.com",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stellar Global Supplies | Premium SS, MS & Industrial Fasteners – Pune",
+    title: "Industrial Steel & Fasteners Supplier in Pune",
     description: "Pune-based supplier of stainless steel, mild steel and industrial fasteners for B2B sourcing. Request a quotation for your material requirements.",
     images: ["/img/og-image.jpg"],
     site: "@stellarglobal",

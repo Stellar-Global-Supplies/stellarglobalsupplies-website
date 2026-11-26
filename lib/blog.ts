@@ -11,6 +11,8 @@ export interface BlogPost {
   author: string;
   tags: string[];
   content: string;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
@@ -37,6 +39,8 @@ export function getAllBlogPosts(): BlogPost[] {
         image: data.image || "/img/og-image.jpg",
         author: data.author || "Stellar Global Supplies",
         tags: data.tags || [],
+        seoTitle: data.seo?.title || "",
+        seoDescription: data.seo?.description || "",
         content,
       };
     })
@@ -63,6 +67,8 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     image: data.image || "/img/og-image.jpg",
     author: data.author || "Stellar Global Supplies",
     tags: data.tags || [],
+    seoTitle: data.seo?.title || "",
+    seoDescription: data.seo?.description || "",
     content,
   };
 }

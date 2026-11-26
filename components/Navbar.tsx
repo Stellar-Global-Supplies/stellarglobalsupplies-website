@@ -11,9 +11,9 @@ const NAV_LINKS: Array<{
 }> = [
   { label: "Home",              href: "#home" },
   { label: "About",             href: "#about" },
-  { label: "Blog",              href: "/blog" },
+  { label: "Blog",              href: "/blog/" },
   { label: "Products",          href: "#products" },
-  { label: "Promotional",       href: "/promotional-products" },
+  { label: "Promotional",       href: "/promotional-products/" },
   { label: "Clients",           href: "#clients" },
   { label: "Contact",           href: "#contact" },
 ];

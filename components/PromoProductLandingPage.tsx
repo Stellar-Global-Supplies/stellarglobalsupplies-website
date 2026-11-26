@@ -138,7 +138,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
           <ol className="flex items-center gap-1 flex-wrap">
             <li><Link href="/" className="hover:underline" style={{ color: "var(--primary)" }}>Home</Link></li>
             <li aria-hidden="true">›</li>
-            <li><Link href="/promotional-products" className="hover:underline" style={{ color: "var(--primary)" }}>Promotional Products</Link></li>
+            <li><Link href="/promotional-products/" className="hover:underline" style={{ color: "var(--primary)" }}>Promotional Products</Link></li>
             <li aria-hidden="true">›</li>
             <li className="text-gray-700 font-medium">{p.name}</li>
           </ol>
@@ -317,7 +317,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
               <h2 className="text-2xl font-extrabold mb-8 text-center" style={{ color: "var(--dark)" }}>You Might Also Need</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
                 {p.relatedProducts.map((r) => (
-                  <Link key={r.slug} href={`/${r.slug}`}
+                  <Link key={r.slug} href={`/${r.slug}/`}
                     className="group rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
                     style={{ background: "var(--light)" }}>
                     <div className="relative h-28 bg-gray-50">
@@ -343,7 +343,7 @@ export default function PromoProductLandingPage({ product: p }: { product: Promo
               Ready to Order {p.name}?
             </h2>
             <p className="text-gray-300 text-sm mb-8">
-              Share your requirement on WhatsApp — size, quantity, and delivery location. We respond with a competitive quote within hours.
+              Share the required size, quantity and delivery location to request a quotation. Confirm price, availability and lead time with our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={wa} target="_blank" rel="noopener noreferrer"

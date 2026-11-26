@@ -81,8 +81,8 @@ function StructuredData({ p }: { p: PromoProductData }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://stellarglobalsupplies.com" },
-      { "@type": "ListItem", position: 2, name: "Promotional Products", item: "https://stellarglobalsupplies.com/promotional-products" },
-      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}` },
+      { "@type": "ListItem", position: 2, name: "Promotional Products", item: "https://stellarglobalsupplies.com/promotional-products/" },
+      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}/` },
     ],
   };
 

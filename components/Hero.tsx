@@ -13,10 +13,10 @@ const CAROUSEL_IMAGES = [
 ];
 
 const STATS = [
-  { value: "500+",  label: "Products",      Icon: Package },
-  { value: "100%",  label: "Quality Check", Icon: ShieldCheck },
-  { value: "3",     label: "Categories",    Icon: Star },
-  { value: "Fast",  label: "Delivery",      Icon: Truck },
+  { value: "MS", label: "Mild Steel",      Icon: Package },
+  { value: "SS", label: "Stainless Steel", Icon: ShieldCheck },
+  { value: "3", label: "Product Categories",    Icon: Star },
+  { value: "RFQ", label: "Quote Support",      Icon: Truck },
 ];
 
 export default function Hero() {
@@ -143,10 +143,10 @@ export default function Hero() {
                   animation: "shimmer 3s linear infinite",
                 }}
               >
-                Reliable
+                Steel & Fasteners
               </span>
               <br />
-              Industrial Supply Partner
+              Supplier in Pune
             </h1>
 
             {/* Sub-copy */}
@@ -155,11 +155,7 @@ export default function Hero() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              One stop. Every material. Zero compromise. Premium{" "}
-              <strong className="text-white font-semibold">
-                Stainless Steel, Mild Steel & Fastening
-              </strong>{" "}
-              products — tailored to your spec, delivered on time.
+              Stellar Global Supplies is a Pune-based B2B supplier of stainless steel, mild steel and industrial fastening products for manufacturing, fabrication and procurement teams. Share your specifications to request a quotation.
             </p>
 
             {/* Value props */}
@@ -169,9 +165,9 @@ export default function Hero() {
               }`}
             >
               {[
-                "500+ industrial products under one roof",
-                "Precision-sourced to your exact specifications",
-                "Reliable quality · on-time, every time",
+                "MS, SS and industrial fastening product categories",
+                "Specification-led sourcing for B2B requirements",
+                "Share dimensions, grade and quantity for a quotation",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-white/75">
                   <span

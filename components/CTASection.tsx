@@ -167,8 +167,6 @@ export default function CTASection() {
               <a
                 key={label}
                 href={href}
-                target={label === "Visit Us" ? "_blank" : undefined}
-                rel={label === "Visit Us" ? "noopener noreferrer" : undefined}
                 // ── NR: contact card click ─────────────────────────────────
                 onClick={() => href && nr(nrEvent, { source: "contact-card", label })}
                 className={[

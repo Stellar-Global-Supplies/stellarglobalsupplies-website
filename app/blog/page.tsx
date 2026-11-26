@@ -33,9 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Stellar Global Supplies",
-    description:
-      "Expert insights on industrial supplies and B2B procurement from Pune's trusted supplier.",
+    title: "Industrial Supplies Blog | Stellar Global Supplies",
+    description: "Buyer guides on industrial materials, fastening products and B2B sourcing.",
     images: ["/img/og-image.jpg"],
   },
   alternates: {

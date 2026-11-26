@@ -157,8 +157,7 @@ export default function Footer() {
               Get a Quote
             </h3>
             <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.55)" }}>
-              Have a requirement? Reach out and we&apos;ll get back to you within 24 hours 
-              with a competitive price.
+              Have a requirement? Share your specifications, quantity and delivery location to request a quotation.
             </p>
             <a
               href="tel:+919637655556"

@@ -1,6 +1,8 @@
 # Sitewide SEO Backlog — Stellar Global Supplies
 
-Last reviewed: 2026-11-26\n\nChanges below are committed on a draft feature branch but are not live. Keep checkboxes open until PRs merge and the deployed site is verified.
+Last reviewed: 2026-11-26
+
+Changes below are committed on a draft feature branch but are not live. Keep checkboxes open until PRs merge and the deployed site is verified.
 
 ## Baseline from Search Console
 

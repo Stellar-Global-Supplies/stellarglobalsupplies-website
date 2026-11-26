@@ -33,7 +33,7 @@ function waLink(productName: string) {
 export function buildMetadata(p: ProductPageData): Metadata {
   const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
   return {
-    title: seoTitle,
+    title: { absolute: seoTitle },
     description: p.desc,
     keywords: p.keywords,
     alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}/` },

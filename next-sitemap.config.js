@@ -13,7 +13,8 @@ const PRODUCT_SLUGS = [
 ];
 
 module.exports = {
-  siteUrl: "https://stellarglobalsupplies.com",\n  trailingSlash: true,
+  siteUrl: "https://stellarglobalsupplies.com",
+  trailingSlash: true,
   generateRobotsTxt: false,
   changefreq: "weekly",
   priority: 0.7,

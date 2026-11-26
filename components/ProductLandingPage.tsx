@@ -311,14 +311,14 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
               Why Source {p.name} from Stellar Global Supplies?
             </h2>
             <p className="text-gray-500 text-sm mb-10 max-w-xl mx-auto">
-              Pune's one-stop industrial procurement partner — quality verified, fast delivery, transparent pricing.
+              Share the product specification, quantity and delivery location to request a quotation.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: "🏭", title: "Quality Verified", body: "Every batch sourced from certified suppliers and inspected before dispatch." },
-                { icon: "🚚", title: "Pan-India Delivery", body: "Reliable logistics from Pune to anywhere in India, on time." },
-                { icon: "💬", title: "Quick Quote via WhatsApp", body: "Share your spec on WhatsApp and get a competitive price within hours." },
-                { icon: "📦", title: "Bulk & Custom Orders", body: "MOQ flexible. Custom sizes, grades, and cut-to-length available." },
+                { icon: "🏭", title: "Specification Review", body: "Confirm the required grade, dimensions and documentation before ordering." },
+                { icon: "🚚", title: "Delivery Terms", body: "Confirm destination, lead time and delivery terms with the quotation." },
+                { icon: "💬", title: "Quote Support", body: "Send size, grade, quantity and delivery location to request pricing." },
+                { icon: "📦", title: "Bulk Enquiries", body: "Share quantity and custom requirements; confirm MOQ and services with the quotation." },
               ].map((card) => (
                 <div
                   key={card.title}
@@ -374,7 +374,7 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
                 {p.relatedProducts.map((r) => (
                   <Link
                     key={r.slug}
-                    href={`/${r.slug}`}
+                    href={`/${r.slug}/`}
                     className="group rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
                     style={{ background: "var(--light)" }}
                   >
@@ -409,7 +409,7 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
               Ready to Order {p.name}?
             </h2>
             <p className="text-gray-300 text-sm mb-8">
-              Share your requirement on WhatsApp — material grade, size, quantity, and delivery location. We'll respond with a competitive quote within hours.
+              Share your material grade, dimensions, quantity and delivery location to request a quotation. Confirm price, availability and lead time with our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

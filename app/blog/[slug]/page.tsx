@@ -260,7 +260,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Back to Blog */}
           <div className="mt-12">
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold group"
             >
               <ArrowLeft

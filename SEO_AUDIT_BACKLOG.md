@@ -1,6 +1,6 @@
 # Sitewide SEO Backlog — Stellar Global Supplies
 
-Last reviewed: 2026-11-26
+Last reviewed: 2026-11-26\n\nChanges below are committed on a draft feature branch but are not live. Keep checkboxes open until PRs merge and the deployed site is verified.
 
 ## Baseline from Search Console
 
@@ -15,17 +15,17 @@ Last reviewed: 2026-11-26
 
 ### P1 — Sitewide crawl/index and metadata
 
-- [x] Homepage SEO title and description rewritten to remove unsupported superlatives, business-count claims and certification wording.
-- [x] Product-page metadata helper shortened to consistent supplier-intent titles; canonical URLs normalized to trailing slash.
-- [x] Promotional-products page metadata and visible claims revised to quote-based, specification-first wording.
-- [x] Blog index and article canonical/OG URLs changed from www to the non-www canonical host.
-- [x] Blog internal links normalized to trailing-slash routes.
-- [x] Static sitemap and next-sitemap configuration normalized to trailing-slash URLs; add published/new product-led blogs (review PR before merge).
-- [x] Blog schema image paths made absolute in blog index/article metadata and structured data.
-- [x] Remove Product Offer schema that claimed `InStock` without verified stock and had no price. Product specs are represented as properties instead.
-- [x] Move LocalBusiness markup off the global layout to the homepage where address/phone are visible; include existing geo coordinates.
-- [x] Add `public/llms.txt` with internal-only product/page links.
-- [x] Blog renderer whitelists only same-domain links and approved business contact destinations (WhatsApp/email/phone); other outbound Markdown links are rendered as text.
+- [ ] Homepage SEO title and description rewritten to remove unsupported superlatives, business-count claims and certification wording.
+- [ ] Product-page metadata helper shortened to consistent supplier-intent titles; canonical URLs normalized to trailing slash.
+- [ ] Promotional-products page metadata and visible claims revised to quote-based, specification-first wording.
+- [ ] Blog index and article canonical/OG URLs changed from www to the non-www canonical host.
+- [ ] Blog internal links normalized to trailing-slash routes.
+- [ ] Static sitemap and next-sitemap configuration normalized to trailing-slash URLs; add published/new product-led blogs (review PR before merge).
+- [ ] Blog schema image paths made absolute in blog index/article metadata and structured data.
+- [ ] Remove Product Offer schema that claimed `InStock` without verified stock and had no price. Product specs are represented as properties instead.
+- [ ] Move LocalBusiness markup off the global layout to the homepage where address/phone are visible; include existing geo coordinates.
+- [ ] Add `public/llms.txt` with internal-only product/page links.
+- [ ] Blog renderer whitelists only same-domain links and approved business contact destinations (WhatsApp/email/phone); other outbound Markdown links are rendered as text.
 - [ ] Review all 43 sitemap URLs, then continue auditing any pages outside the 25-page crawl sample.
 - [ ] Recheck URL Inspection and rich results after approved deployment; do not add prices or stock claims without verified data.
 
@@ -51,9 +51,9 @@ Last reviewed: 2026-11-26
 
 ### P3 — Structured data and AI-answer visibility
 
-- [x] Organization/WebSite schema remains sitewide; LocalBusiness schema is homepage-only and has geo.
-- [x] Product markup no longer asserts unverified availability or invents prices.
-- [x] Blog structured data uses absolute image and canonical URLs.
+- [ ] Organization/WebSite schema remains sitewide; LocalBusiness schema is homepage-only and has geo.
+- [ ] Product markup no longer asserts unverified availability or invents prices.
+- [ ] Blog structured data uses absolute image and canonical URLs.
 - [ ] FAQPage markup is retained for helpful on-page FAQ content/other consumers; it no longer guarantees Google FAQ rich results.
 - [ ] Add genuine customer reviews only with consent and evidence; do not fabricate ratings.
 - [ ] Add original measured statistics only after business supplies verifiable figures.

@@ -10,9 +10,9 @@ import PromoBanner from "@/components/PromoBanner";
 import { Phone, Mail, CheckCircle2, ArrowLeft, Package } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies Pune",
+  title: { absolute: "Industrial Fasteners Offers in Pune" },
   description:
-    "Exclusive promotional industrial fasteners from Stellar Global Supplies, Pune. Special pricing on MS NYLOCK NUTs (M5–M10), Internal Circlips DIN 472 (B8–B100), External Circlips DIN 471 (A6–A100), Nordlock Washers (M6–M24), and T-Nuts (M4–M8). Premium quality, ISO certified, bulk order discounts available. Get free quote today!",
+     "Featured industrial fasteners from Stellar Global Supplies, Pune. Browse MS Nylock nuts, DIN 472 and DIN 471 circlips, Nordlock washers and T-nuts. Request a quotation for sizes and quantities.",
   keywords: [
     "promotional industrial products",
     "MS NYLOCK NUT M5 M6 M8 M10",
@@ -24,25 +24,24 @@ export const metadata: Metadata = {
     "aluminum extrusion T-nuts Pune",
     "industrial fasteners on sale",
     "special offer fasteners",
-    "bulk order discounts",
+    "bulk fastener enquiries",
     "Stellar Global Supplies promotional",
     "Pune fastener supplier",
     "vibration proof nuts",
     "locking washers",
     "retaining rings",
     "DIN standard circlips",
-    "premium quality fasteners",
-    "ISO certified industrial supplies",
+    "industrial fastener products",
+    
     "wholesale industrial products",
     "fastener deals Pune",
     "industrial hardware promotions",
   ],
   openGraph: {
-    title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies",
-    description:
-      "Exclusive deals on premium industrial fasteners. MS NYLOCK NUTs, DIN Circlips, Nordlock Washers — special pricing for bulk orders. Quality guaranteed.",
+    title: "Industrial Fasteners Offers | Stellar Global Supplies",
+    description: "Featured MS Nylock nuts, DIN circlips, Nordlock washers and T-nuts. Request a quote for your required sizes and quantities.",
     type: "website",
-    url: "https://www.stellarglobalsupplies.com/promotional-products",
+    url: "https://stellarglobalsupplies.com/promotional-products/",
     siteName: "Stellar Global Supplies",
     images: [
       {
@@ -56,14 +55,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Promotional Industrial Products | Special Offers | Stellar Global Supplies",
-    description:
-      "Exclusive deals on premium industrial fasteners. MS NYLOCK NUTs, DIN Circlips, Nordlock Washers — special pricing for bulk orders.",
+    title: "Industrial Fasteners Offers | Stellar Global Supplies",
+    description: "Featured MS Nylock nuts, DIN circlips, Nordlock washers and T-nuts. Request a quote for your required sizes and quantities.",
     images: ["/img/og-image.jpg"],
     site: "@stellarglobal",
   },
   alternates: {
-    canonical: "https://www.stellarglobalsupplies.com/promotional-products",
+    canonical: "https://stellarglobalsupplies.com/promotional-products/",
   },
 };
 
@@ -142,7 +140,7 @@ const PRODUCTS = [
     name: "T-Nuts",
     img: "/img/05_t_nuts.png",
     tagline: "Precise thread, strong & reliable",
-    grade: "Premium Quality",
+    grade: "M4–M8",
     description:
       "High-quality T-nuts designed for secure sliding or drop-in fastening in aluminum extrusion profiles. Featuring precise threading and a durable long-lasting build, these T-nuts provide strong, reliable anchor points for modular machine frames, CNC builds, conveyor systems, and solar mounting structures.",
     sizes: ["M4", "M5", "M6", "M8"],
@@ -388,9 +386,9 @@ export default function PromotionalProductsPage() {
             <div className="flex flex-wrap gap-4 mt-8">
               {[
                 { label: "Products Featured", val: "5" },
-                { label: "In Stock", val: "All" },
-                { label: "Bulk Discounts", val: "Yes" },
-                { label: "Delivery", val: "Fast" },
+                { label: "Availability", val: "Confirm" },
+                { label: "Pricing", val: "Quote" },
+                { label: "Delivery", val: "Confirm" },
               ].map(({ label, val }) => (
                 <div
                   key={label}

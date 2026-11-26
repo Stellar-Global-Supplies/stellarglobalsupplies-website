@@ -32,14 +32,14 @@ function waLink(productName: string) {
 // ── METADATA HELPER ───────────────────────────────────────────────────────────
 export function buildMetadata(p: ProductPageData): Metadata {
   return {
-    title: `${p.headline} | Stellar Global Supplies`,
+    title: seoTitle,
     description: p.desc,
     keywords: p.keywords,
-    alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}` },
+    alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}/` },
     openGraph: {
       title: `${p.headline} | Stellar Global Supplies`,
       description: p.desc,
-      url: `https://stellarglobalsupplies.com/${p.slug}`,
+      url: `https://stellarglobalsupplies.com/${p.slug}/`,
       siteName: "Stellar Global Supplies",
       images: [
         {
@@ -74,28 +74,9 @@ function StructuredData({ p }: { p: ProductPageData }) {
     name: p.name,
     description: p.desc,
     image: `https://stellarglobalsupplies.com${p.img}`,
-    url: `https://stellarglobalsupplies.com/${p.slug}`,
+    url: `https://stellarglobalsupplies.com/${p.slug}/`,
     category: p.category,
-    brand: { "@type": "Brand", name: "Stellar Global Supplies" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "LocalBusiness",
-        name: "Stellar Global Supplies",
-        telephone: "+91-9637655556",
-        email: "stellarglobalsupplies@gmail.com",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Survey No-169, Gala No-3, Pandurang Industrial Complex, Rupee Nagar, Talawade",
-          addressLocality: "Pune",
-          addressRegion: "Maharashtra",
-          postalCode: "411062",
-          addressCountry: "IN",
-        },
-      },
-    },
+    additionalProperty: p.specs.map(([name, value]) => ({\n      "@type": "PropertyValue",\n      name,\n      value,\n    })),
   };
 
   const breadcrumb = {
@@ -104,7 +85,7 @@ function StructuredData({ p }: { p: ProductPageData }) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://stellarglobalsupplies.com" },
       { "@type": "ListItem", position: 2, name: p.category, item: `https://stellarglobalsupplies.com/#products` },
-      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}` },
+      { "@type": "ListItem", position: 3, name: p.name, item: `https://stellarglobalsupplies.com/${p.slug}/` },
     ],
   };
 
@@ -225,7 +206,7 @@ export default function ProductLandingPage({ product: p }: { product: ProductPag
 
                 {/* Trust badges */}
                 <div className="flex flex-wrap gap-4 mt-6">
-                  {["✅ Quality Verified", "🚚 Pan-India Delivery", "📦 Bulk Orders Welcome"].map((b) => (
+                  {["Specification-based sourcing", "Quote support", "Bulk enquiries welcome"].map((b) => (
                     <span key={b} className="text-xs text-gray-300 font-medium">{b}</span>
                   ))}
                 </div>

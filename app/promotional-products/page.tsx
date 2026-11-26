@@ -73,15 +73,14 @@ const PRODUCTS = [
     img: "/img/01_nyloc_nut.png",
     tagline: "Vibration-proof fastening solution",
     grade: "Grade 982",
-    description:
-      "Premium MS NYLOCK NUTS with a nylon insert that deforms during installation, creating a resilient thread lock preventing loosening from vibration and shock. Ideal for automotive, machinery, and structural applications where safety is critical.",
+    description: "MS Nylock nuts with a nylon insert locking feature. Confirm thread size, grade, coating and application requirements before ordering.",
     sizes: ["M5X0.80", "M6X1.00", "M8X1.25", "M10X1.00", "M10X1.50"],
     features: [
-      "Nylon insert for superior locking",
-      "Vibration and shock resistant",
-      "Reusable up to 10 times",
-      "Wide temperature range (−30°C to +110°C)",
-      "Excellent corrosion resistance",
+      "Nylon insert locking feature",
+      "Confirm application suitability for vibration or shock",
+      "Confirm reuse requirements for the assembly",
+      "Confirm operating temperature requirements",
+      "Confirm coating and corrosion requirements",
     ],
   },
   {
@@ -90,15 +89,14 @@ const PRODUCTS = [
     img: "/img/02_internal_circlips_DIN472.png",
     tagline: "Precision bore retention rings",
     grade: "DIN 472",
-    description:
-      "High-quality internal circlips manufactured to DIN 472 standards. Designed for secure retention in housings and bores, providing axial location for bearings, gears, and other components. High-grade spring steel for maximum durability and fatigue resistance.",
+    description: "Internal retaining rings listed to DIN 472 for bore retention. Confirm the bore size, ring dimensions and material requirements against the drawing.",
     sizes: ["B8 to B100"],
     features: [
       "Manufactured to DIN 472 standards",
-      "High-grade spring steel construction",
-      "Precision formed for perfect fit",
-      "Excellent fatigue resistance",
-      "Smooth bearing surface finish",
+      "Confirm material and finish for the application",
+      "Select the ring size to match the specified bore",
+      "Confirm service conditions and requirements",
+      "Share the drawing or specification when requesting a quote",
     ],
   },
   {
@@ -107,15 +105,14 @@ const PRODUCTS = [
     img: "/img/03_external_circlips_DIN471.png",
     tagline: "Reliable shaft retention solution",
     grade: "DIN 471",
-    description:
-      "Durable external circlips conforming to DIN 471 specifications for secure retention on shafts and spindles. Provides axial location for bearings, pulleys, and other components. Premium spring steel with excellent tensile strength and fatigue properties.",
+    description: "External retaining rings listed to DIN 471 for shaft retention. Confirm shaft diameter, ring dimensions and material requirements against the drawing.",
     sizes: ["A6 to A100"],
     features: [
       "Manufactured to DIN 471 standards",
-      "Premium spring steel material",
-      "High tensile strength",
-      "Superior fatigue resistance",
-      "Precision manufactured tolerances",
+      "Confirm material and finish for the application",
+      "Select the ring size to match the specified shaft",
+      "Confirm service conditions and requirements",
+      "Share the drawing or specification when requesting a quote",
     ],
   },
   {
@@ -124,15 +121,14 @@ const PRODUCTS = [
     img: "/img/04_nordlock_washers.png",
     tagline: "Advanced wedge-locking technology",
     grade: "Standard Grade",
-    description:
-      "Premium Nordlock washers using innovative wedge-locking technology for superior bolt security. The cam-action design creates a powerful wedge effect that prevents bolt loosening even under extreme vibration and dynamic loads — the preferred choice for construction, mining, and heavy machinery.",
+    description: "Nordlock wedge-locking washers are designed to resist loosening in bolted joints. Confirm washer size, mating surfaces and installation requirements for the application.",
     sizes: ["M6 to M24"],
     features: [
       "Wedge-locking cam technology",
-      "Eliminates bolt loosening completely",
-      "Reusable multiple times",
-      "Works with standard bolts & nuts",
-      "Superior to conventional lock washers",
+      "Designed to resist loosening; verify application suitability",
+      "Confirm replacement or reuse requirements",
+      "Confirm bolt, nut and surface compatibility",
+      "Share the joint details to confirm the required type",
     ],
   },
   {
@@ -147,9 +143,9 @@ const PRODUCTS = [
     features: [
       "Precise thread for secure fastening",
       "Strong & reliable under load",
-      "Compatible with 20, 30 & 40-series extrusions",
+      "Confirm profile and slot compatibility before ordering",
       "Durable long-lasting construction",
-      "Roll-in and drop-in types available",
+      "Specify the required T-nut style",
     ],
   },
 ];

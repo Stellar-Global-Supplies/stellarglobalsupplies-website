@@ -8,11 +8,10 @@ import PromoPopup from "@/components/PromoPopup";
 export const metadata: Metadata = {
   metadataBase: new URL("https://stellarglobalsupplies.com"),
   title: {
-    default: "Stellar Global Supplies | Premium SS & MS Industrial Materials – Pune",
+    default: "Stellar Global Supplies | Industrial Steel & Fasteners – Pune",
     template: "%s | Stellar Global Supplies",
   },
-  description:
-    "India's leading industrial supply partner in Pune. Premium Stainless Steel, Mild Steel, MS NYLOCK NUTs, DIN Circlips, Nordlock Washers & all fastening solutions. 500+ businesses trust us. Quality verified, fast delivery. Get free quote!",
+  description: "Pune-based B2B supplier of stainless steel, mild steel sheets, sections and industrial fasteners. Browse product pages and request a quotation.",
   keywords: [
     "Stellar Global Supplies",
     "industrial supplies Pune",
@@ -37,15 +36,15 @@ export const metadata: Metadata = {
     "MS channels angles",
     "SS sheets plates",
     "promotional products",
-    "bulk order discounts",
-    "ISO certified supplies",
+    
+    
     "stainless steel supplier pune",
     "mild steel supplier india",
     "industrial fasteners pune",
     "SS channels pipes sheets",
     "MS angles flats pipes pune",
     "hex bolts allen bolts india",
-    "industrial raw material supplier",
+    "industrial material supplier",
     "stellar global supplies pune",
     "industrial procurement india",
     "locking fastening products",
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
     "industrial steel distributor india",
     "stainless steel sheets pune",
     "mild steel plates india",
-    "fasteners manufacturer india",
+    "industrial fastener sourcing",
   ],
   authors: [{ name: "Stellar Global Supplies", url: "https://stellarglobalsupplies.com" }],
   creator: "Stellar Global Supplies",
@@ -100,9 +99,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://stellarglobalsupplies.com",
-  },
-  verification: {
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN",
   },
   icons: {
     icon: [
@@ -172,29 +168,6 @@ const jsonLd = {
       name: "Stellar Global Supplies",
       publisher: { "@id": "https://stellarglobalsupplies.com/#organization" },
       inLanguage: "en-IN",
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://stellarglobalsupplies.com/#localbusiness",
-      name: "Stellar Global Supplies",
-      image: "https://stellarglobalsupplies.com/img/logo.jpg",
-      priceRange: "₹₹",
-      telephone: "+91-9637655556",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress:
-          "Survey No - 169, Gala No - 3, Pandurang Industrial Complex, Rupee Nagar, Talawade",
-        addressLocality: "Pune",
-        addressRegion: "Maharashtra",
-        postalCode: "411062",
-        addressCountry: "IN",
-      },
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
     },
   ],
 };

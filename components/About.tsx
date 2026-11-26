@@ -136,8 +136,7 @@ export default function About() {
               className="section-heading"
             >
               Industrial Material{" "}
-              <span className="text-gradient">All Your Industrial</span>{" "}
-              Materials
+              <span className="text-gradient">Sourcing Support</span>
             </h2>
 
             {/* Body */}

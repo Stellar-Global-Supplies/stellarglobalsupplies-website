@@ -37,7 +37,7 @@ export function buildMetadata(p: ProductPageData): Metadata {
     keywords: p.keywords,
     alternates: { canonical: `https://stellarglobalsupplies.com/${p.slug}/` },
     openGraph: {
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.desc,
       url: `https://stellarglobalsupplies.com/${p.slug}/`,
       siteName: "Stellar Global Supplies",
@@ -54,7 +54,7 @@ export function buildMetadata(p: ProductPageData): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${p.headline} | Stellar Global Supplies`,
+      title: seoTitle,
       description: p.desc,
       images: [`https://stellarglobalsupplies.com${p.img}`],
     },

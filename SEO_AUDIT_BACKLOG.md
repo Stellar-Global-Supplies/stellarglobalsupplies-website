@@ -11,7 +11,7 @@ Changes below are committed on a draft feature branch but are not live. Keep che
 - Organic web: 25 clicks, 987 impressions, 2.53% CTR, average position 7.61
 - Previous-period comparison unavailable on the connected free plan.
 - GA4 is not connected; traffic quality and conversion analysis are blocked until it is connected.
-- Main sitemap: 43 submitted URLs, zero reported errors. A separate `stellarforge.stellarglobalsupplies.com` sitemap reports one error and is outside this domain's current repository scope.
+- Main sitemap on main: 43 submitted URLs, zero reported errors. Draft sitemap in PR #19 contains 47 unique same-domain URLs, all trailing-slash normalized; includes blog routes from PR #12, PR #18 and PR #19. Merge dependencies apply. A separate `stellarforge.stellarglobalsupplies.com` sitemap reports one error and is outside repository scope.
 
 ## Priority backlog
 
@@ -60,6 +60,16 @@ Changes below are committed on a draft feature branch but are not live. Keep che
 - [ ] Add genuine customer reviews only with consent and evidence; do not fabricate ratings.
 - [ ] Add original measured statistics only after business supplies verifiable figures.
 - [ ] Public pricing/comparison pages are not appropriate without quote data and the user's no-table/no-external-link preference; keep RFQ content instead.
+
+
+## Draft PR inventory and dependencies
+
+- **PR #12 — MS Flats buyer guide:** rewritten with verified page specs, internal image, internal product links and approved WhatsApp/email CTAs. Draft; merge before PR #19 because its sitemap includes the blog URL.
+- **PR #13 — NYLOCK draft:** duplicate of an existing published NYLOCK buyer guide, with blank metadata and unsupported claims. Converted to draft; do not merge until rewritten as a distinct topic.
+- **PR #14 — MS Angles draft:** duplicate of an existing published MS Angles blog, with blank metadata and unsupported certification/delivery/response claims. Converted to draft; do not merge until rewritten as a distinct topic.
+- **PR #17 — MS Flats page optimization:** closed and main contains the optimization; monitor post-deploy performance.
+- **PR #18 — MS vs SS outbound-link cleanup:** draft removes third-party Further Reading links. Merge before PR #19 because the sitemap includes this blog.
+- **PR #19 — Sitewide SEO fixes:** current draft; includes the Chequered Plate guide and sitemap. Merge only after PR #12 and PR #18; no merge or deployment from automation.
 
 ## Content cadence and policy
 

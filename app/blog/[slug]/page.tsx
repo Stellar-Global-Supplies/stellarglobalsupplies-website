@@ -278,9 +278,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Ready to Source Industrial Supplies?
             </h3>
             <p className="text-lg text-gray-700 mb-6 text-center max-w-2xl mx-auto">
-              Partner with Stellar Global Supplies for premium stainless steel,
-              mild steel, and industrial fastening products. Quality guaranteed,
-              delivered fast from Pune.
+              Source stainless steel, mild steel and industrial fastening products from Stellar Global Supplies in Pune. Share your specifications to request a quotation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

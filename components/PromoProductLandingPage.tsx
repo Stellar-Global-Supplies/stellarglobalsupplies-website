@@ -33,7 +33,8 @@ function waLink(productName: string) {
 }
 
 // ── METADATA HELPER ───────────────────────────────────────────────────────────
-export function buildPromoMetadata(p: PromoProductData): Metadata {\n  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
+export function buildPromoMetadata(p: PromoProductData): Metadata {
+  const seoTitle = `${p.name} Supplier in Pune | Stellar Global Supplies`;
   return {
     title: seoTitle,
     description: p.metaDesc,

@@ -59,7 +59,7 @@ export default function BlogCard({
         </div>
 
         {/* Title */}
-        <Link href={`/blog/${slug}`}>
+        <Link href={`/blog/${slug}/`}>
           <h3 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors line-clamp-2">
             {title}
           </h3>

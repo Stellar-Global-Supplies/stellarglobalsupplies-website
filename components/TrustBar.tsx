@@ -19,7 +19,8 @@ function AnimatedNumber({
   suffix: string;
   active: boolean;
 }) {
-  const num = parseInt(value, 10);\n  const numeric = Number.isFinite(num);
+  const num = parseInt(value, 10);
+  const numeric = Number.isFinite(num);
   const [count, setCount] = useState(0);
   const started = useRef(false);
 
@@ -39,6 +40,8 @@ function AnimatedNumber({
     };
     requestAnimationFrame(tick);
   }, [active, num, numeric]);
+
+  if (!numeric) return <span>{value}{suffix}</span>;
 
   return (
     <span>

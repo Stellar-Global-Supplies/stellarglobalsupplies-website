@@ -298,13 +298,10 @@ export default function PromotionalProductsPage() {
               name: p.name,
               description: p.description,
               category: "Industrial Fasteners",
-              brand: { "@type": "Brand", name: "Stellar Global Supplies" },
-              offers: {
-                "@type": "Offer",
-                priceCurrency: "INR",
-                availability: "https://schema.org/InStock",
-                seller: { "@type": "Organization", name: "Stellar Global Supplies" },
-              },
+              additionalProperty: [
+                { "@type": "PropertyValue", name: "Listed grade or standard", value: p.grade },
+                { "@type": "PropertyValue", name: "Listed sizes", value: p.sizes.join(", ") },
+              ],
             },
           })),
         }}

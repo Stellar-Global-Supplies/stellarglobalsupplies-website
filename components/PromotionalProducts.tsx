@@ -12,7 +12,7 @@ const PROMOTIONAL_PRODUCTS = [
     slug: "ms-nylock-nut",
     name: "MS Nylock Nut",
     img: "/img/01_nyloc_nut.png",
-    tagline: "Vibration-proof fastening",
+    tagline: "Nylon-insert locking feature",
     sizes: ["M5×0.80", "M6×1.00", "M8×1.25", "M10×1.50"],
     grade: "Grade 982",
     highlight: "Nylon insert locking",
@@ -35,7 +35,7 @@ const PROMOTIONAL_PRODUCTS = [
     tagline: "Reliable shaft retention",
     sizes: ["A6 to A100"],
     grade: "DIN 471",
-    highlight: "Premium fatigue resistance",
+    highlight: "DIN 471 shaft retention",
   },
   {
     id: "nordlock-washers",
@@ -45,17 +45,17 @@ const PROMOTIONAL_PRODUCTS = [
     tagline: "Wedge-locking technology",
     sizes: ["M6 to M24"],
     grade: "Standard Grade",
-    highlight: "Eliminates bolt loosening",
+    highlight: "Wedge-lock design; confirm joint suitability",
   },
   {
     id: "t-nuts",
     slug: "t-nuts",
     name: "T-Nuts",
     img: "/img/05_t_nuts.png",
-    tagline: "Precise thread, durable build",
+    tagline: "Thread sizes M4–M8",
     sizes: ["M4 to M8"],
-    grade: "Premium Quality",
-    highlight: "Strong & reliable extrusion fastening",
+    grade: "M4–M8",
+    highlight: "Confirm profile and slot compatibility",
   },
 ];
 
@@ -125,7 +125,7 @@ export default function PromotionalProducts() {
             </span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base">
-            Handpicked premium industrial fasteners — quality verified, prices optimised for volume orders.
+            Featured industrial fasteners and components. Share size and quantity to confirm specifications, availability, pricing and delivery terms.
           </p>
         </div>
 

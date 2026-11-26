@@ -137,14 +137,13 @@ const PRODUCTS = [
     img: "/img/05_t_nuts.png",
     tagline: "Precise thread, strong & reliable",
     grade: "M4–M8",
-    description:
-      "High-quality T-nuts designed for secure sliding or drop-in fastening in aluminum extrusion profiles. Featuring precise threading and a durable long-lasting build, these T-nuts provide strong, reliable anchor points for modular machine frames, CNC builds, conveyor systems, and solar mounting structures.",
+    description: "T-nuts for fastening in compatible extrusion profiles. Confirm thread size, profile or slot compatibility and required style before ordering.",
     sizes: ["M4", "M5", "M6", "M8"],
     features: [
       "Precise thread for secure fastening",
       "Strong & reliable under load",
       "Confirm profile and slot compatibility before ordering",
-      "Durable long-lasting construction",
+      "Confirm profile, slot and installation compatibility",
       "Specify the required T-nut style",
     ],
   },
@@ -353,7 +352,7 @@ export default function PromotionalProductsPage() {
                 }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" aria-hidden="true" />
-                Special Offers
+                Featured Products
               </span>
             </div>
 
@@ -361,7 +360,7 @@ export default function PromotionalProductsPage() {
               id="page-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 leading-tight"
             >
-              Premium{" "}
+              Featured{" "}
               <span
                 style={{
                   background: "linear-gradient(90deg, #00B98E, #4dffd4)",
@@ -374,8 +373,7 @@ export default function PromotionalProductsPage() {
               </span>
             </h1>
             <p className="text-white/70 text-base lg:text-lg max-w-2xl leading-relaxed">
-              Exclusive selection of high-quality industrial fasteners and components at special promotional pricing. 
-              Each product is quality-verified and ready for bulk orders.
+              Featured industrial fasteners and components. Share the required size and quantity to confirm specifications, availability, pricing and delivery terms.
             </p>
 
             {/* Quick stat strip */}
@@ -427,8 +425,7 @@ export default function PromotionalProductsPage() {
               Ready to Place a Bulk Order?
             </h2>
             <p className="text-white/70 text-base mb-8 max-w-xl mx-auto leading-relaxed">
-              Contact us today for special pricing, volume discounts, and customised solutions. 
-              Our team responds within 2 business hours.
+              Share your required sizes, grades, quantity and delivery location. We will confirm specifications and quotation details.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

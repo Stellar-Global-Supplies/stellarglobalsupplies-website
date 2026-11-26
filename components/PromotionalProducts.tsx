@@ -198,7 +198,7 @@ export default function PromotionalProducts() {
 
                 {/* CTA */}
                 <Link
-                  href={`/${product.slug}`}
+                  href={`/${product.slug}/`}
                   className="mt-auto w-full py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 text-center block"
                   style={{ background: "var(--primary)" }}
                   aria-label={`View details for ${product.name}`}
@@ -214,7 +214,7 @@ export default function PromotionalProducts() {
         {/* View all CTA */}
         <div className="text-center mt-10">
           <Link
-            href="/promotional-products"
+            href="/promotional-products/"
             onClick={() => nr("PromoSectionCTA")}
             className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             style={{ background: "var(--dark)" }}

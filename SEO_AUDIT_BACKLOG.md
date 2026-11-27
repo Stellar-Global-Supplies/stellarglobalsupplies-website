@@ -18,10 +18,11 @@ This is the persistent sitewide backlog. Do not close items until the code chang
 
 - [x] PR #20 merged on 2026-11-26. Homepage title/content, unsupported claims, canonical metadata, trailing-slash internal links, sitemap configuration, internal-only `llms.txt`, contact/link policy and other sitewide SEO changes are now in main. Production homepage audit confirms the new title/description, 200 status, indexability and non-www canonical.
 - [ ] **P1 — Rich-result errors:** GSC URL Inspection reports Product snippets/Merchant listings failures for the homepage and SS Sheets. Product pages currently have no verified price, stock, reviews or ratings, so do not fabricate Offers/availability. This run's PR replaces incomplete Product markup with WebPage + Thing/about and BreadcrumbList; removes Product types from homepage catalogue ItemList; retains visible product specifications and FAQs; removes retired FAQPage schema. Recheck rich-result status after merge/deploy.
-- [ ] **P1 — Sitemap 404:** `/blog/ms-flats-supplier-in-pune-b2b-industrial-supply-41f924/` is in sitemap source but live returns HTTP 404; its content file is absent. This run removes the stale sitemap entry. Do not create a new blog on an off-cadence day just to keep a stale URL.
+- [x] **P1 — Sitemap 404:** `/blog/ms-flats-supplier-in-pune-b2b-industrial-supply-41f924/` was in sitemap source but live returns HTTP 404 and its content file is absent. This run removes the stale sitemap entry; no off-cadence blog was created.
 - [ ] **P1 — Blog index discovery:** `/blog/` returns 200, is indexable and self-canonical in the live audit, but URL Inspection says “URL is unknown to Google” and shows no sitemap/referring URLs. It is listed in the site sitemap. The available Search Console tools inspect URLs but cannot request indexing; request indexing manually after the approved deployment and verify discovery.
 - [ ] **P1 — Host normalization:** the audit crawled `www` URLs and found 24 canonical-to-non-www findings in its sample. Non-www pages are self-canonical, and URL Inspection selects non-www for the homepage. The live `www` host is still served (audit final URL stays www; `public/_redirects` has no host rule). Configure/verify a Cloudflare host redirect to non-www. This is blocked from this automation because Cloudflare account rules are not accessible here; do not edit deployment/workflow settings.
-- [ ] **P1 — Sitemap consistency:** after removing the dead blog URL, compare the static source, generated/live sitemap and Search Console's submitted URL list. Audit currently reports 47 live sitemap URLs versus 43 submitted in GSC; confirm every listed URL is live, same-domain, canonical and represented in the repo before resubmitting.
+- [x] Static sitemap source validation: 46 unique URLs, all same-domain, trailing-slash normalized, and every URL maps to an existing app route or blog content file.
+- [ ] **P1 — Sitemap consistency:** compare generated/live sitemap and Search Console's submitted URL list. Audit currently reports 47 live sitemap URLs versus 43 submitted in GSC; confirm the live list matches source and recheck after preview/deploy.
 
 ## P1 — GSC page opportunities to refresh
 
@@ -44,7 +45,8 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 - [ ] Image dimensions: audit reports 24 images without width/height in the sample; all sampled images have alt text. Many are Next.js `Image fill` inside fixed/aspect-ratio containers. Validate CLS/Core Web Vitals before changing image layout. Speed/Core Web Vitals could not be measured by this audit.
 - [ ] Broken-link finding `/cdn-cgi/l/email/protection` is a Cloudflare email-obfuscation scanner false positive. Keep the business email CTA; verify actual browser behavior after deployment.
 - [ ] Recheck live robots/crawler directives: repository `public/robots.txt` is generic Allow, while prior live checks reported host-managed rules that block GPTBot/ClaudeBot but allow OAI-SearchBot/PerplexityBot. Confirm Cloudflare/host rules; do not change crawler permissions without authorization.
-- [ ] Review all existing blog content for unsupported stock, pricing, discounts, certifications, response-time or delivery promises. No external citations, source links, further-reading links or external CTAs. Only same-domain links and verified business contact links are permitted.
+- [x] Audited all 9 existing blog Markdown files for required frontmatter, tables and link policy. No frontmatter gaps or tables; no disallowed outbound links after this run removed two external references from the MS-vs-SS article and normalized its internal product links.
+- [ ] Add relevant contextual product-page internal links to older blog posts that currently have none; keep anchors useful and paths direct/trailing-slash.
 - [ ] Review internal navigation and related-product links for direct trailing-slash routes, useful relevance and no broken/redirecting paths.
 - [ ] Keep old/duplicate blog drafts closed until rewritten as genuinely distinct topics with complete frontmatter and verified catalogue facts. No duplicate NYLOCK or MS Angles buyer guide.
 
@@ -63,6 +65,7 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 - Shorten promotional product title template to avoid the 68-character audit finding.
 - Correct blog article `mainEntityOfPage` to the non-www trailing-slash canonical.
 - Remove the dead MS Flats blog URL from the static sitemap.
+- Remove the two external references from the MS-vs-SS article and normalize its internal product links.
 - Remove unused Google Fonts preconnects and obsolete/duplicated head meta tags (fonts are self-hosted; viewport is emitted by Next metadata).
 - Replace unsupported homepage catalogue claims with specification/quotation-first wording.
 - PR/preview, build, lint, route, same-domain link and post-deployment verification remain pending.

@@ -12,7 +12,7 @@ tags:
   - "industrial procurement"
   - "fabrication"
 seo:
-  title: "MS vs Stainless Steel Sheets: How to Choose"
+  title: "MS vs SS Sheets: Selection Guide"
   description: "Compare MS and stainless steel sheets for cost, corrosion resistance, finish and fabrication. A practical guide for industrial buyers."
 ---
 

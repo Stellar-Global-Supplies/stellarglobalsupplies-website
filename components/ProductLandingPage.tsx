@@ -69,24 +69,28 @@ export function buildMetadata(p: ProductPageData): Metadata {
 
 // ── STRUCTURED DATA ───────────────────────────────────────────────────────────
 function StructuredData({ p }: { p: ProductPageData }) {
-  const product = {
+  const pageUrl = `https://stellarglobalsupplies.com/${p.slug}/`;
+  const imageUrl = `https://stellarglobalsupplies.com${p.img}`;
+  const productPage = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: p.name,
+    "@type": "WebPage",
+    name: p.headline,
     description: p.desc,
-    image: `https://stellarglobalsupplies.com${p.img}`,
-    url: `https://stellarglobalsupplies.com/${p.slug}/`,
-    category: p.category,
-    additionalProperty: p.specs.map(([name, value]) => ({
-      "@type": "PropertyValue",
-      name,
-      value,
-    })),
+    url: pageUrl,
+    primaryImageOfPage: { "@type": "ImageObject", url: imageUrl },
+    about: {
+      "@type": "Thing",
+      name: p.name,
+      description: p.desc,
+      url: pageUrl,
+    },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
   };
 
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://stellarglobalsupplies.com" },
       { "@type": "ListItem", position: 2, name: p.category, item: `https://stellarglobalsupplies.com/#products` },
@@ -94,19 +98,10 @@ function StructuredData({ p }: { p: ProductPageData }) {
     ],
   };
 
-  const faqSchema = p.faqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: p.faqs.map(f => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  } : null;
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(product) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productPage) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
     </>

@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.stellarglobalsupplies.com/blog/${post.slug}`,
+      "@id": `https://stellarglobalsupplies.com/blog/${post.slug}/`,
     },
   };
 

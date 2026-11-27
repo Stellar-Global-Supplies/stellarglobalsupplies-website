@@ -162,7 +162,7 @@ export default function Products() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Industrial Products Catalogue",
-    description: "Complete range of Mild Steel, Stainless Steel, and Fastening products from Stellar Global Supplies",
+    description: "Catalogue of Mild Steel, Stainless Steel, and industrial fastening products from Stellar Global Supplies",
     url: "https://stellarglobalsupplies.com/#products",
     numberOfItems: CATEGORIES.reduce((acc, cat) => acc + cat.products.length, 0),
     itemListElement: CATEGORIES.flatMap((cat, catIndex) =>
@@ -170,10 +170,9 @@ export default function Products() {
         "@type": "ListItem",
         position: catIndex * 100 + prodIndex + 1,
         item: {
-          "@type": "Product",
+          "@type": "Thing",
           name: product.name,
           description: product.desc,
-          category: cat.label,
           url: `https://stellarglobalsupplies.com/${product.slug}/`,
         },
       }))
@@ -225,9 +224,7 @@ export default function Products() {
             Premium <span className="text-gradient">Industrial Materials</span> Catalogue
           </h2>
           <p className="section-sub mx-auto">
-            Explore our comprehensive range of <strong>Mild Steel, Stainless Steel, and Fastening products</strong>. 
-            Each product is precision-sourced, quality-verified, and delivered fast from Pune. 
-            Trusted by 500+ businesses across India for industrial supply solutions.
+            Explore our range of <strong>Mild Steel, Stainless Steel, and industrial fastening products</strong>. Review the listed specifications and share your requirements for a quotation. Confirm availability, pricing and delivery terms before ordering.
           </p>
         </div>
 

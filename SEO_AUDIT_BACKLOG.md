@@ -10,7 +10,7 @@ This is the persistent sitewide backlog. Do not close items until the code chang
 - Web search window: 2026-10-30 through 2026-11-24 (Search Console data lag applies).
 - 26 clicks, 937 impressions, 2.77% CTR, average position 7.81.
 - Previous-period comparison is unavailable on the connected plan. Query opportunities with at least 40 impressions and average position 4–20 returned no rows; page opportunities are still available.
-- Main sitemap in Search Console: 43 submitted URLs, zero reported errors. Live SEO audit sitemap: 47 URLs. Static source sitemap is 43 entries before this PR; one entry for a nonexistent MS Flats article is removed here, leaving 42. Investigate the generated/live sitemap mismatch after preview/deploy.
+- Main sitemap in Search Console: 43 submitted URLs, zero reported errors. Live SEO audit sitemap: 47 URLs. Static source sitemap had 47 entries before this PR; one entry for a nonexistent MS Flats article is removed here, leaving 46. Investigate the generated/live sitemap mismatch after preview/deploy.
 - Search Console also shows a separate `stellarforge.stellarglobalsupplies.com/sitemap.xml` pending with 1 error and 7 submitted URLs. It is outside this website/repository scope.
 - GA4 conversion-quality reporting remains a prior backlog item; connection was previously reported unavailable and was not rechecked this run.
 

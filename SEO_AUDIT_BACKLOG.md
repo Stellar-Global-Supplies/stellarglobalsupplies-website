@@ -17,7 +17,7 @@ This is the persistent sitewide backlog. Do not close items until the code chang
 ## P0/P1 — Indexing, canonical and rich-result integrity
 
 - [x] PR #20 merged on 2026-11-26. Homepage title/content, unsupported claims, canonical metadata, trailing-slash internal links, sitemap configuration, internal-only `llms.txt`, contact/link policy and other sitewide SEO changes are now in main. Production homepage audit confirms the new title/description, 200 status, indexability and non-www canonical.
-- [ ] **P1 — Rich-result errors:** GSC URL Inspection reports Product snippets/Merchant listings failures for the homepage and SS Sheets. Product pages currently have no verified price, stock, reviews or ratings, so do not fabricate Offers/availability. This run's PR replaces incomplete Product markup with WebPage + Thing/about and BreadcrumbList; removes Product types from homepage catalogue ItemList; retains visible product specifications and FAQs; removes retired FAQPage schema. Recheck rich-result status after merge/deploy.
+- [ ] **P1 — Rich-result errors:** GSC URL Inspection reports Product snippets/Merchant listings failures for the homepage and SS Sheets. Product pages currently have no verified price, stock, reviews or ratings, so do not fabricate Offers/availability. This run's PR replaces incomplete Product markup with WebPage + Thing/about and BreadcrumbList; removes Product types from homepage and promotional-products ItemLists; adds direct product-detail links on promotional cards; retains visible product specifications and FAQs; removes retired FAQPage schema. Recheck rich-result status after merge/deploy.
 - [x] **P1 — Sitemap 404:** `/blog/ms-flats-supplier-in-pune-b2b-industrial-supply-41f924/` was in sitemap source but live returns HTTP 404 and its content file is absent. This run removes the stale sitemap entry; no off-cadence blog was created.
 - [ ] **P1 — Blog index discovery:** `/blog/` returns 200, is indexable and self-canonical in the live audit, but URL Inspection says “URL is unknown to Google” and shows no sitemap/referring URLs. It is listed in the site sitemap. The available Search Console tools inspect URLs but cannot request indexing; request indexing manually after the approved deployment and verify discovery.
 - [ ] **P1 — Host normalization:** the audit crawled `www` URLs and found 24 canonical-to-non-www findings in its sample. Non-www pages are self-canonical, and URL Inspection selects non-www for the homepage. The live `www` host is still served (audit final URL stays www; `public/_redirects` has no host rule). Configure/verify a Cloudflare host redirect to non-www. This is blocked from this automation because Cloudflare account rules are not accessible here; do not edit deployment/workflow settings.
@@ -46,6 +46,7 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 - [ ] Broken-link finding `/cdn-cgi/l/email/protection` is a Cloudflare email-obfuscation scanner false positive. Keep the business email CTA; verify actual browser behavior after deployment.
 - [ ] Recheck live robots/crawler directives: repository `public/robots.txt` is generic Allow, while prior live checks reported host-managed rules that block GPTBot/ClaudeBot but allow OAI-SearchBot/PerplexityBot. Confirm Cloudflare/host rules; do not change crawler permissions without authorization.
 - [x] Audited all 9 existing blog Markdown files for required frontmatter, tables and link policy. No frontmatter gaps or tables; no disallowed outbound links after this run removed two external references from the MS-vs-SS article and normalized its internal product links.
+- [x] Add direct trailing-slash product-detail links to the promotional-products cards.
 - [ ] Add relevant contextual product-page internal links to older blog posts that currently have none; keep anchors useful and paths direct/trailing-slash.
 - [ ] Review internal navigation and related-product links for direct trailing-slash routes, useful relevance and no broken/redirecting paths.
 - [ ] Keep old/duplicate blog drafts closed until rewritten as genuinely distinct topics with complete frontmatter and verified catalogue facts. No duplicate NYLOCK or MS Angles buyer guide.
@@ -61,7 +62,8 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 
 ## This run's proposed changes
 
-- Replace incomplete Product rich-result schema on shared product templates with WebPage/about Thing plus BreadcrumbList; remove Product nodes from the homepage catalogue and FAQPage markup while keeping visible FAQs.
+- Replace incomplete Product rich-result schema on shared product templates with WebPage/about Thing plus BreadcrumbList; remove Product nodes from homepage and promotional-products catalogue lists and FAQPage markup while keeping visible FAQs.
+- Add direct internal product-detail links to featured promotional-product cards.
 - Shorten promotional product title template to avoid the 68-character audit finding.
 - Correct blog article `mainEntityOfPage` to the non-www trailing-slash canonical.
 - Remove the dead MS Flats blog URL from the static sitemap.

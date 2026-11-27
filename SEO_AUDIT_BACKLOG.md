@@ -68,6 +68,7 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 - Correct blog article `mainEntityOfPage` to the non-www trailing-slash canonical.
 - Remove the dead MS Flats blog URL from the static sitemap.
 - Remove the two external references from the MS-vs-SS article and normalize its internal product links.
+- Shorten the MS-vs-SS article metadata title after the preview audit found 69 characters.
 - Remove unused Google Fonts preconnects and obsolete/duplicated head meta tags (fonts are self-hosted; viewport is emitted by Next metadata).
 - Replace unsupported homepage catalogue claims with specification/quotation-first wording.
 - PR/preview, build, lint, route, same-domain link and post-deployment verification remain pending.

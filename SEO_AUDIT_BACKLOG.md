@@ -17,12 +17,12 @@ This is the persistent sitewide backlog. Do not close items until the code chang
 ## P0/P1 — Indexing, canonical and rich-result integrity
 
 - [x] PR #20 merged on 2026-11-26. Homepage title/content, unsupported claims, canonical metadata, trailing-slash internal links, sitemap configuration, internal-only `llms.txt`, contact/link policy and other sitewide SEO changes are now in main. Production homepage audit confirms the new title/description, 200 status, indexability and non-www canonical.
-- [ ] **P1 — Rich-result errors:** GSC URL Inspection reports Product snippets/Merchant listings failures for the homepage and SS Sheets. Product pages currently have no verified price, stock, reviews or ratings, so do not fabricate Offers/availability. This run's PR replaces incomplete Product markup with WebPage + Thing/about and BreadcrumbList; removes Product types from homepage and promotional-products ItemLists; adds direct product-detail links on promotional cards; retains visible product specifications and FAQs; removes retired FAQPage schema. Recheck rich-result status after merge/deploy.
-- [x] **P1 — Sitemap 404:** `/blog/ms-flats-supplier-in-pune-b2b-industrial-supply-41f924/` was in sitemap source but live returns HTTP 404 and its content file is absent. This run removes the stale sitemap entry; no off-cadence blog was created.
+- [x] **P1 — Rich-result markup correction:** PR #21 merged. Shared product pages now use WebPage/about Thing + BreadcrumbList; homepage and promotional-products ItemLists use Thing, promotional cards link to detail pages, and FAQPage markup was removed while visible FAQs remain. Cloudflare Preview for the exact merge commit was successful and audited. **[ ] Recheck GSC rich-result verdicts after production deployment**; current live site still serves old Product markup.
+- [x] **P1 — Sitemap 404 source fix:** `/blog/ms-flats-supplier-in-pune-b2b-industrial-supply-41f924/` is absent from the merged static sitemap and has no content file. Live production still returns 404 until the deployment is live; **[ ] confirm the URL is no longer submitted in the live sitemap** after deployment. No off-cadence blog was created.
 - [ ] **P1 — Blog index discovery:** `/blog/` returns 200, is indexable and self-canonical in the live audit, but URL Inspection says “URL is unknown to Google” and shows no sitemap/referring URLs. It is listed in the site sitemap. The available Search Console tools inspect URLs but cannot request indexing; request indexing manually after the approved deployment and verify discovery.
 - [ ] **P1 — Host normalization:** the audit crawled `www` URLs and found 24 canonical-to-non-www findings in its sample. Non-www pages are self-canonical, and URL Inspection selects non-www for the homepage. The live `www` host is still served (audit final URL stays www; `public/_redirects` has no host rule). Configure/verify a Cloudflare host redirect to non-www. This is blocked from this automation because Cloudflare account rules are not accessible here; do not edit deployment/workflow settings.
 - [x] Static sitemap source validation: 46 unique URLs, all same-domain, trailing-slash normalized, and every URL maps to an existing app route or blog content file.
-- [ ] **P1 — Sitemap consistency:** compare generated/live sitemap and Search Console's submitted URL list. Audit currently reports 47 live sitemap URLs versus 43 submitted in GSC; confirm the live list matches source and recheck after preview/deploy.
+- [ ] **P1 — Sitemap consistency:** static source has 46 URLs; current live audit still reports 47 and GSC lists 43 submitted. The merged code is not yet reflected on production; reconcile the live/generated sitemap after deployment.
 
 ## P1 — GSC page opportunities to refresh
 
@@ -45,8 +45,8 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 - [ ] Image dimensions: audit reports 24 images without width/height in the sample; all sampled images have alt text. Many are Next.js `Image fill` inside fixed/aspect-ratio containers. Validate CLS/Core Web Vitals before changing image layout. Speed/Core Web Vitals could not be measured by this audit.
 - [ ] Broken-link finding `/cdn-cgi/l/email/protection` is a Cloudflare email-obfuscation scanner false positive. Keep the business email CTA; verify actual browser behavior after deployment.
 - [ ] Recheck live robots/crawler directives: repository `public/robots.txt` is generic Allow, while prior live checks reported host-managed rules that block GPTBot/ClaudeBot but allow OAI-SearchBot/PerplexityBot. Confirm Cloudflare/host rules; do not change crawler permissions without authorization.
-- [x] Audited all 9 existing blog Markdown files for required frontmatter, tables and link policy. No frontmatter gaps or tables; no disallowed outbound links after this run removed two external references from the MS-vs-SS article and normalized its internal product links.
-- [x] Add direct trailing-slash product-detail links to the promotional-products cards.
+- [x] Audited all 9 existing blog Markdown files for required frontmatter, tables and link policy. No frontmatter gaps or tables; no disallowed outbound links after PR #21 removed two external references from the MS-vs-SS article and normalized its internal product links.
+- [x] Add direct trailing-slash product-detail links to the five featured promotional-products cards in PR #21.
 - [ ] Add relevant contextual product-page internal links to older blog posts that currently have none; keep anchors useful and paths direct/trailing-slash.
 - [ ] Review internal navigation and related-product links for direct trailing-slash routes, useful relevance and no broken/redirecting paths.
 - [ ] Keep old/duplicate blog drafts closed until rewritten as genuinely distinct topics with complete frontmatter and verified catalogue facts. No duplicate NYLOCK or MS Angles buyer guide.
@@ -60,18 +60,24 @@ Prioritize metadata/content refresh on these pages; values are clicks / impressi
 - [ ] Add original business metrics only after the owner supplies verifiable figures.
 - [ ] Do not publish pricing/stock claims or external comparison/citation links. Quote-request content is appropriate until verified price/stock data exists.
 
-## This run's proposed changes
+## Completed this run — PR #21 merged
 
-- Replace incomplete Product rich-result schema on shared product templates with WebPage/about Thing plus BreadcrumbList; remove Product nodes from homepage and promotional-products catalogue lists and FAQPage markup while keeping visible FAQs.
-- Add direct internal product-detail links to featured promotional-product cards.
-- Shorten promotional product title template to avoid the 68-character audit finding.
-- Correct blog article `mainEntityOfPage` to the non-www trailing-slash canonical.
-- Remove the dead MS Flats blog URL from the static sitemap.
-- Remove the two external references from the MS-vs-SS article and normalize its internal product links.
-- Shorten the MS-vs-SS article metadata title after the preview audit found 69 characters.
-- Remove unused Google Fonts preconnects and obsolete/duplicated head meta tags (fonts are self-hosted; viewport is emitted by Next metadata).
-- Replace unsupported homepage catalogue claims with specification/quotation-first wording.
-- PR/preview, build, lint, route, same-domain link and post-deployment verification remain pending.
+- Replaced incomplete Product rich-result markup with WebPage/about Thing and BreadcrumbList on shared product templates; removed Product nodes from the homepage and promotional-products lists and retired FAQPage schema. Visible specs/FAQs remain.
+- Added five direct product-detail links on promotional cards and changed promotional-page title copy to featured-product wording.
+- Shortened promotional-product title metadata and the MS-vs-SS blog SEO title.
+- Corrected blog article `mainEntityOfPage` to the non-www trailing-slash canonical.
+- Removed the stale MS Flats blog URL from the static sitemap.
+- Removed two external references from MS-vs-SS article; normalized its internal links.
+- Removed unused Google Fonts preconnects and obsolete/redundant head metadata.
+- Replaced unsupported homepage catalogue claims with specification/quotation-first wording.
+
+## Merge and preview QA
+
+- PR #21 merged by squash on 2026-11-27. Merge commit: `2fdb5964b33afedc65bdb929ab25b673235acfb2`.
+- Cloudflare Preview succeeded for the exact merge commit; homepage, SS Sheets, promotional products and MS-vs-SS blog preview pages returned 200. Product pages now emit WebPage/BreadcrumbList; catalogue pages emit ItemList without Product nodes. Preview noindex/canonical-to-production behavior is expected.
+- CodeQL and Analyze passed on the merge commit. CodeRabbit was skipped (repository requires manual review); changes were manually reviewed.
+- Local build/lint/test could not be run because network access blocked repository cloning/dependency install; Cloudflare Preview build passed.
+- **Production is not yet verified:** current live audit still serves the old promotional title, Product schema on product pages, 68-character circlip title, old MS-vs-SS title and the stale MS Flats 404. Recheck after deployment; do not claim production success yet.
 
 ## Link, format and deployment policy
 

@@ -187,9 +187,6 @@ export default function RootLayout({
         <script id="newrelic-browser-agent" src="/nr.js" />
 
         {/* Preconnect for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
         {/* New Relic data endpoint preconnect (EU region) */}
         <link rel="preconnect" href="https://bam.eu01.nr-data.net" />
         {/* Use this instead if your NR account is in the US region: */}
@@ -208,23 +205,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        {/* Additional SEO Meta Tags */}
-        <meta name="geo.region" content="IN-MH" />
-        <meta name="geo.placename" content="Pune" />
-        <meta name="geo.position" content="18.6727;73.8196" />
-        <meta name="ICBM" content="18.6727, 73.8196" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="distribution" content="India" />
-        <meta name="coverage" content="Worldwide" />
-        <meta name="rating" content="general" />
-        <meta name="language" content="English" />
-        <meta name="doc-type" content="Web Page" />
-        <meta name="doc-class" content="Completed" />
-        <meta name="doc-rights" content="Public" />
-
-        {/* Performance hints */}
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       </head>
       <body className="font-sans antialiased">
         <PromoPopup />

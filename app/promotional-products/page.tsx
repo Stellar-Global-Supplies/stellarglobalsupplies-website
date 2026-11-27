@@ -10,7 +10,7 @@ import PromoBanner from "@/components/PromoBanner";
 import { Phone, Mail, CheckCircle2, ArrowLeft, Package } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: { absolute: "Industrial Fasteners Offers in Pune" },
+  title: { absolute: "Featured Industrial Fasteners in Pune" },
   description:
      "Featured industrial fasteners from Stellar Global Supplies, Pune. Browse MS Nylock nuts, DIN 472 and DIN 471 circlips, Nordlock washers and T-nuts. Request a quotation for sizes and quantities.",
   keywords: [
@@ -22,8 +22,7 @@ export const metadata: Metadata = {
     "Nordlock washers M6 M24",
     "T-nuts M4 M5 M6 M8",
     "aluminum extrusion T-nuts Pune",
-    "industrial fasteners on sale",
-    "special offer fasteners",
+    
     "bulk fastener enquiries",
     "Stellar Global Supplies promotional",
     "Pune fastener supplier",
@@ -34,11 +33,11 @@ export const metadata: Metadata = {
     "industrial fastener products",
     
     "wholesale industrial products",
-    "fastener deals Pune",
+    
     "industrial hardware promotions",
   ],
   openGraph: {
-    title: "Industrial Fasteners Offers | Stellar Global Supplies",
+    title: "Featured Industrial Fasteners | Stellar Global Supplies",
     description: "Featured MS Nylock nuts, DIN circlips, Nordlock washers and T-nuts. Request a quote for your required sizes and quantities.",
     type: "website",
     url: "https://stellarglobalsupplies.com/promotional-products/",
@@ -69,6 +68,7 @@ export const metadata: Metadata = {
 const PRODUCTS = [
   {
     id: "nylock-nut",
+    slug: "ms-nylock-nut",
     name: "MS NYLOCK NUT",
     img: "/img/01_nyloc_nut.png",
     tagline: "Vibration-proof fastening solution",
@@ -85,6 +85,7 @@ const PRODUCTS = [
   },
   {
     id: "internal-circlips",
+    slug: "internal-circlips-din472",
     name: "Internal Circlips DIN 472",
     img: "/img/02_internal_circlips_DIN472.png",
     tagline: "Precision bore retention rings",
@@ -101,6 +102,7 @@ const PRODUCTS = [
   },
   {
     id: "external-circlips",
+    slug: "external-circlip-din471",
     name: "External Circlips DIN 471",
     img: "/img/03_external_circlips_DIN471.png",
     tagline: "Reliable shaft retention solution",
@@ -117,6 +119,7 @@ const PRODUCTS = [
   },
   {
     id: "nordlock-washers",
+    slug: "nordlock-washers",
     name: "Nordlock Washers",
     img: "/img/04_nordlock_washers.png",
     tagline: "Advanced wedge-locking technology",
@@ -133,6 +136,7 @@ const PRODUCTS = [
   },
   {
     id: "t-nuts",
+    slug: "t-nuts",
     name: "T-Nuts",
     img: "/img/05_t_nuts.png",
     tagline: "Precise thread, strong & reliable",
@@ -151,7 +155,7 @@ const PRODUCTS = [
 
 // ── PRODUCT CARD ─────────────────────────────────────────────────────────────
 function ProductCard({
-  name, img, tagline, grade, description, sizes, features, index,
+  name, img, slug, tagline, grade, description, sizes, features, index,
 }: (typeof PRODUCTS)[0] & { index: number }) {
   const isEven = index % 2 === 0;
 
@@ -245,6 +249,16 @@ function ProductCard({
             </div>
           </div>
 
+          <div className="mb-3">
+            <Link
+              href={`/${slug}/`}
+              className="inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              style={{ color: "var(--primary)" }}
+              aria-label={`View product details for ${name}`}
+            >
+              View product details
+            </Link>
+          </div>
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3">
             <a
@@ -285,23 +299,18 @@ export default function PromotionalProductsPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Promotional Industrial Products",
-          description:
-            "Special promotional industrial fasteners and components from Stellar Global Supplies",
+          name: "Featured Industrial Fasteners",
+          description: "Featured industrial fasteners and components listed by Stellar Global Supplies.",
           url: "https://stellarglobalsupplies.com/promotional-products/",
           numberOfItems: PRODUCTS.length,
           itemListElement: PRODUCTS.map((p, i) => ({
             "@type": "ListItem",
             position: i + 1,
             item: {
-              "@type": "Product",
+              "@type": "Thing",
               name: p.name,
               description: p.description,
-              category: "Industrial Fasteners",
-              additionalProperty: [
-                { "@type": "PropertyValue", name: "Listed grade or standard", value: p.grade },
-                { "@type": "PropertyValue", name: "Listed sizes", value: p.sizes.join(", ") },
-              ],
+              url: `https://stellarglobalsupplies.com/${p.slug}/`,
             },
           })),
         }}
@@ -335,7 +344,7 @@ export default function PromotionalProductsPage() {
                   <Link href="/" className="hover:text-white transition-colors">Home</Link>
                 </li>
                 <li aria-hidden="true">/</li>
-                <li className="text-white/80">Promotional Products</li>
+                <li className="text-white/80">Industrial Fasteners</li>
               </ol>
             </nav>
 
